@@ -70,6 +70,11 @@ Vagrant.configure("2") do |config|
   # SHELL
 
   config.vm.provision "shell" do |shell|
+    shell.name = "Set the keymap to US"
+    shell.inline = "localectl set-keymap --no-convert us"
+  end
+
+  config.vm.provision "shell" do |shell|
     shell.name = "Installing Python 2 for running Ansible"
     shell.inline = "which python2 &> /dev/null || pacman -Sy --noconfirm --quiet python2"
   end
