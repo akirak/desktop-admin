@@ -1,0 +1,13 @@
+{
+  "name": "user-admin",
+  "version": "1.0.0",
+  "description": "User administration",
+  "scripts": {
+    "backup": "mackup backup",
+    "backup:dry": "mackup backup -n",
+    "up": "ansible-playbook -i localhost -c local playbook.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
