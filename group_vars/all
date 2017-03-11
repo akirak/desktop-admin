@@ -1,0 +1,3 @@
+---
+user_home: "{{ lookup('env', 'HOME') }}"
+playbook_dir: "{{ user_home }}/admin"

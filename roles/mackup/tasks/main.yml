@@ -1,0 +1,12 @@
+---
+
+- name: install mackup
+  packer:
+    name: mackup
+    state: present
+
+- name: install mackup.cfg
+  file:
+    src: "{{ playbook_dir }}/files/config/.mackup.cfg"
+    dest: "{{ user_home }}/.mackup.cfg"
+    state: link
