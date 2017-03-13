@@ -1,0 +1,6 @@
+---
+- name: "add a symlink to {{ name }}"
+  file:
+    state: link
+    path: "{{ deft_dir }}/{{ name }}"
+    src: "{{ github_work_trees }}/{{ name }}"

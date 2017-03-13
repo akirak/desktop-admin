@@ -1,3 +1,7 @@
 ---
 user_home: "{{ lookup('env', 'HOME') }}"
 playbook_dir: "{{ user_home }}/admin"
+
+personal_github_login: akirak
+work_trees_root: "{{ user_home }}/work"
+github_work_trees: "{{ work_trees_root }}/github.com/{{ personal_github_login }}"
