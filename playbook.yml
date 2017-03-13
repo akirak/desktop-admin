@@ -1,4 +1,6 @@
 ---
+- include: packer.yml
+
 - hosts: all
   become: yes
   roles:

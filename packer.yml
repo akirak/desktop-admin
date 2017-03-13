@@ -1,0 +1,29 @@
+---
+- hosts: all
+  tasks:
+
+    - name: check if packer is installed
+      raw: which packer
+      ignore_errors: yes
+      register: packer
+
+    - name: update package cache
+      become: yes
+      pacman:
+        update_cache: yes
+
+    - name: install dependencies for packer
+      become: yes
+      pacman:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - git
+        - expac
+        - jshon
+        - base-devel
+      when: packer.rc != 0
+
+    - name: install packer
+      script: utils/install_packer.sh
+      when: packer.rc != 0
