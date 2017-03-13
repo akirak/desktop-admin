@@ -1,16 +1,20 @@
-# Ansible Playbook Template for Arch Linux
+desktop-admin
+==================
 
-This repository contains a very basic structure for writing an Ansible playbook for Arch Linux. It can be testable on Vagrant.
+This repository contains Ansible playbooks and configurations used to provision my desktop machines.
 
-- [pigmonkey/ansible-aur](https://github.com/pigmonkey/ansible-aur) is bundled, so you can install packages from AUR with `aur` module in a playbook.
-- [bugyt/archlinux](https://atlas.hashicorp.com/bugyt/boxes/archlinux) is used as a box for testing.
+Installation
+---------------
 
-## Usage
+This repository should be cloned to your `~/admin`:
 
-### Testing on Vagrant
+```sh
+git clone git@github.com:akirak/desktop-admin.git ~/admin
+```
 
-    vagrant up --provision
+Directory structure
+------------------------
 
-### Running on your machine
-
-    ansible-playbook -c local -i localhost playbook.yml
+- ~/admin
+  - files/
+    - config/: configuration files (used by mackup)
