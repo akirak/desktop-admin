@@ -3,3 +3,9 @@
   roles:
     - { role: deft_tree, name: roadmap }
     - { role: deft_tree, name: learning }
+  tasks:
+    - name: "add symlink ~/deft/blog-posts"
+      file:
+        state: link
+        path: "{{ deft_dir }}/blog-posts"
+        src: "{{ user_home }}/blog/content/post"
