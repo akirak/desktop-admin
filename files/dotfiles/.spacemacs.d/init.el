@@ -351,7 +351,22 @@ you should place your code here."
   (setq org-archive-location "~/deft/log/LatestArchive.org::* %s")
   (setq org-reveal-root "https://cdn.bootcss.com/reveal.js/3.4.1/")
   (require 'my-org-to-markdown)
- 
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
+  (require 'ob-ditaa)
+  (require 'ob-dot)
+  ;; (require 'ob-haskell)
+  ;; (require 'ob-js)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (shell . t)
+     (ditaa . t)
+     (dot . t)
+     ;; (haskell . t)
+     ;; (js . t)
+     ))
+
   (require 'my-hugo)
   (setq hugo-project-directory "~/blog")
 
