@@ -38,4 +38,4 @@ Directory structure
 
 - ~/admin
   - files/
-    - config/: configuration files (used by mackup)
+    - dotfiles/: configuration files (used by mackup)
