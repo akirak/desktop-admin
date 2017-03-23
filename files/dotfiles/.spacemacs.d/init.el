@@ -366,6 +366,9 @@ you should place your code here."
      ;; (haskell . t)
      ;; (js . t)
      ))
+  ;; dependencies
+  (setq org-enforce-todo-dependencies t)
+  (setq org-agenda-dim-blocked-tasks t)
 
   (require 'my-hugo)
   (setq hugo-project-directory "~/blog")
