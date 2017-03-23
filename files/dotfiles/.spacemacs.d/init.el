@@ -346,7 +346,7 @@ you should place your code here."
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)
   (setq org-todo-keywords
-        '((sequence "TODO" "IN_PROGRESS" "|" "DONE" "CANCELLED")))
+        '((sequence "TODO" "NEXT" "IN_PROGRESS" "|" "DONE" "CANCELLED")))
   ;; I usually archive subtrees only from inside programs directory.
   (setq org-archive-location "~/deft/log/LatestArchive.org::* %s")
   (setq org-reveal-root "https://cdn.bootcss.com/reveal.js/3.4.1/")
