@@ -342,7 +342,7 @@ you should place your code here."
         (append '()
                 (file-expand-wildcards (concat deft-directory "/programs/*.org"))))
   (setq org-refile-targets
-        '((org-agenda-files . (:maxlevel . 3))))
+        '((org-agenda-files . (:maxlevel . 2))))
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)
   (setq org-todo-keywords
