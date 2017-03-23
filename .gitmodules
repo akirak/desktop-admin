@@ -4,3 +4,6 @@
 [submodule "utils/packer"]
 	path = utils/packer
 	url = https://github.com/austinhyde/ansible-packer.git
+[submodule "files/spacemacs-layers/journal"]
+	path = files/spacemacs-layers/journal
+	url = https://github.com/borgnix/spacemacs-journal.git
