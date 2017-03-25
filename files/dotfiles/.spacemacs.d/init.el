@@ -326,6 +326,13 @@ you should place your code here."
         '((width . 150)
           (height . 50)))
 
+  (global-evil-matchit-mode 1)
+  (global-evil-visualstar-mode)
+  (global-evil-surround-mode 1)
+
+  (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+  (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+
   ;; deft layer configuration
   (setq deft-directory "~/deft")
   (setq deft-extensions '("org" "md" "txt"))
