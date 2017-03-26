@@ -5,8 +5,7 @@
   "scripts": {
     "backup": "mackup backup",
     "backup:dry": "mackup backup -n",
-    "up": "ansible-playbook -i localhost -c local playbook.yml",
-    "deft": "ansible-playbook -i localhost -c local deft_tree.yml"
+    "up": "ansible-playbook -i localhost -c local playbook.yml"
   },
   "keywords": [],
   "author": "",
