@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
      csv
      rust
      ;; javascript
@@ -312,6 +313,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; load custom elisps from this directory
   (add-to-list 'load-path (expand-file-name "elisp" dotspacemacs-directory))
 
+  (setq my-org-directory "~/org")
+  (setq my-org-elisp-directory (expand-file-name "elisp" my-org-directory))
+  (when (file-exists-p my-org-elisp-directory)
+    (add-to-list 'load-path my-org-elisp-directory))
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -342,43 +348,15 @@ you should place your code here."
   (setq deft-file-naming-rules '((nospace . "-")))
 
   ;; org layer configuration
-  (setq org-default-notes-file (concat deft-directory "/programs/Inbox.org"))
-  (setq org-agenda-files
-        (append '()
-                (file-expand-wildcards (concat deft-directory "/programs/*.org"))))
-  (setq org-refile-targets
-        '((org-agenda-files . (:maxlevel . 2))))
-  (setq org-refile-use-outline-path 'file)
-  (setq org-outline-path-complete-in-steps nil)
-  (setq org-todo-keywords
-        '((sequence "TODO" "NEXT" "IN_PROGRESS" "|" "DONE" "CANCELLED")))
-  ;; I usually archive subtrees only from inside programs directory.
-  (setq org-archive-location "~/deft/log/LatestArchive.org::* %s")
-  (setq org-reveal-root "https://cdn.bootcss.com/reveal.js/3.4.1/")
+  (let ((org-init-file (concat my-org-elisp-directory "/spacemacs-config.el")))
+    (when (file-exists-p org-init-file)
+      (load-file org-init-file)))
+
   (require 'my-org-to-markdown)
-  (setq org-confirm-babel-evaluate nil)
   (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
-  (require 'ob-ditaa)
-  (require 'ob-dot)
-  ;; (require 'ob-haskell)
-  ;; (require 'ob-js)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     (shell . t)
-     (ditaa . t)
-     (dot . t)
-     ;; (haskell . t)
-     ;; (js . t)
-     ))
-  ;; dependencies
-  (setq org-enforce-todo-dependencies t)
-  (setq org-agenda-dim-blocked-tasks t)
 
   (require 'my-hugo)
   (setq hugo-project-directory "~/blog")
-
-  (setq org-journal-dir "~/Dropbox/Journal/org-journal")
 
   ;; writeroom (distraction-free) mode
   ;; keybinding to toggle writeroom
@@ -402,9 +380,13 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
  '(package-selected-packages
    (quote
-    (org-journal ox-reveal csv-mode toml-mode racer cargo rust-mode chinese-pyim chinese-pyim-basedict ace-pinyin pinyinlib ace-jump-mode youdao-dictionary names chinese-word-at-point fcitx ibuffer-projectile magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache jinja2-mode ansible-doc ansible imenu-list mwim flyspell-correct-helm flyspell-correct auto-dictionary helm-company helm-c-yasnippet company-web web-completion-data company-tern dash-functional company-statistics company-cabal auto-yasnippet ac-ispell auto-complete vagrant-tramp vagrant smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help org-projectile org-present org-pomodoro org-download htmlize gnuplot engine-mode org noflet ranger writeroom-mode visual-fill-column emojify circe oauth2 websocket ht alert log4e gntp twittering-mode pangu-spacing find-by-pinyin-dired pos-tip gmail-message-mode ham-mode html-to-markdown edit-server deft web-beautify tern livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode mmm-mode markdown-toc markdown-mode gh-md intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode yaml-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
+    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic org-journal ox-reveal csv-mode toml-mode racer cargo rust-mode chinese-pyim chinese-pyim-basedict ace-pinyin pinyinlib ace-jump-mode youdao-dictionary names chinese-word-at-point fcitx ibuffer-projectile magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache jinja2-mode ansible-doc ansible imenu-list mwim flyspell-correct-helm flyspell-correct auto-dictionary helm-company helm-c-yasnippet company-web web-completion-data company-tern dash-functional company-statistics company-cabal auto-yasnippet ac-ispell auto-complete vagrant-tramp vagrant smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help org-projectile org-present org-pomodoro org-download htmlize gnuplot engine-mode org noflet ranger writeroom-mode visual-fill-column emojify circe oauth2 websocket ht alert log4e gntp twittering-mode pangu-spacing find-by-pinyin-dired pos-tip gmail-message-mode ham-mode html-to-markdown edit-server deft web-beautify tern livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode mmm-mode markdown-toc markdown-mode gh-md intero flycheck hlint-refactor hindent helm-hoogle haskell-snippets yasnippet company-ghci company-ghc ghc company haskell-mode cmm-mode yaml-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
