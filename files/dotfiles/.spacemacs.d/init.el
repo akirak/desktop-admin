@@ -319,6 +319,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (when (file-exists-p my-org-elisp-directory)
     (add-to-list 'load-path my-org-elisp-directory))
 
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "C-u") 'backward-kill-sentence)
+    (define-key helm-map (kbd "C-w") 'backward-kill-word)
+    (define-key helm-map (kbd "C-k") 'kill-line))
+
   )
 
 (defun dotspacemacs/user-config ()
