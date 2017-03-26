@@ -121,7 +121,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -332,6 +332,9 @@ you should place your code here."
   (setq initial-frame-alist
         '((width . 150)
           (height . 50)))
+
+  (define-key evil-hybrid-state-map (kbd "C-u") 'backward-kill-sentence)
+  (define-key evil-hybrid-state-map (kbd "C-w") 'backward-kill-word)
 
   (global-evil-matchit-mode 1)
   (global-evil-visualstar-mode)
