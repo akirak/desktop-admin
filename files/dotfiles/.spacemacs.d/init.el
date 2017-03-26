@@ -337,7 +337,7 @@ you should place your code here."
   (global-evil-surround-mode 1)
 
   ;; deft layer configuration
-  (setq deft-directory "~/deft")
+  (setq deft-directory my-org-directory)
   (setq deft-extensions '("org" "md" "txt"))
   (setq deft-default-extension "org")
   (setq deft-recursive t)
