@@ -369,8 +369,9 @@ you should place your code here."
 
   ;; org layer configuration
   (let ((org-init-file (concat my-org-elisp-directory "/spacemacs-config.el")))
-    (when (file-exists-p org-init-file)
-      (load-file org-init-file)))
+    (if (file-exists-p org-init-file)
+        (load-file org-init-file)
+      (message (concat org-init-file " does not exist!"))))
 
   (require 'my-org-to-markdown)
   (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
