@@ -356,6 +356,8 @@ you should place your code here."
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
 
+  (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
+  (spacemacs/set-leader-keys "~" 'eyebrowse-last-window-config)
   ;; deft layer configuration
   (setq deft-directory my-org-directory)
   (setq deft-extensions '("org" "md" "txt"))
