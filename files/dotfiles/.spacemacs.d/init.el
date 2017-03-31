@@ -358,6 +358,25 @@ you should place your code here."
 
   (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
   (spacemacs/set-leader-keys "~" 'eyebrowse-last-window-config)
+  (defun my/new-workspace-with-current-window ()
+    (interactive)
+    (let ((workspace-tag (read-from-minibuffer "Tag for new workspace: "))
+          (eyebrowse-new-workspace (buffer-name)))
+      (eyebrowse-create-window-config)
+      (unless (string-empty-p workspace-tag)
+        (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) workspace-tag))))
+
+  (defun my/close-window-or-workspace ()
+    (interactive)
+    (cond ((> (list-length (window-list)) 1)
+           (delete-window))
+          ((> (list-length (eyebrowse--get 'window-configs)) 1)
+           (eyebrowse-close-window-config))
+          ((y-or-n-p "This is the last workspace. Close the perspective? ") (spacemacs/layouts-ts-close))))
+
+  (define-key evil-window-map (kbd "T") 'my/new-workspace-with-current-window)
+  (define-key evil-window-map (kbd "q") 'my/close-window-or-workspace)
+
   ;; deft layer configuration
   (setq deft-directory my-org-directory)
   (setq deft-extensions '("org" "md" "txt"))
