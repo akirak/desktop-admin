@@ -390,10 +390,10 @@ you should place your code here."
   (setq deft-file-naming-rules '((nospace . "-")))
 
   ;; org layer configuration
-  (let ((org-init-file (concat my-org-elisp-directory "/spacemacs-config.el")))
+  (let ((org-init-file (concat my-org-elisp-directory "/configure-org.el")))
     (if (file-exists-p org-init-file)
         (load-file org-init-file)
-      (message (concat org-init-file " does not exist!"))))
+      (error (concat org-init-file " does not exist!"))))
 
   (require 'my-org-to-markdown)
   (setq org-ditaa-jar-path "/usr/share/java/ditaa/ditaa-0_10.jar")
