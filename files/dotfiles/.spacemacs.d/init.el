@@ -346,6 +346,7 @@ you should place your code here."
   (define-key evil-hybrid-state-map (kbd "C-u") 'backward-kill-sentence)
   (define-key evil-hybrid-state-map (kbd "C-w") 'backward-kill-word)
   (define-key evil-hybrid-state-map (kbd "C-h") 'evil-backward-char)
+  (define-key evil-hybrid-state-map (kbd "C-o") 'evil-execute-in-normal-state)
 
   (define-key minibuffer-local-map (kbd "C-u") 'backward-kill-sentence)
   (define-key minibuffer-local-map (kbd "C-w") 'backward-kill-word)
