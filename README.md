@@ -3,6 +3,8 @@ user-admin
 
 This repository contains Ansible playbooks and configurations used to provision my desktop machines.
 
+Note that this repository probably doesn't work on machines of other people. It is published for backup and reference.
+
 Installation
 ---------------
 
@@ -18,13 +20,7 @@ Usage
 ### Initial run
 
 ```sh
-./bootstrap.sh
-```
-
-After setting up ~/deft directory on Resilio Sync, run:
-
-```sh
-npm run deft
+./install.sh
 ```
 
 ### After updating your configuration file and/or playbook
