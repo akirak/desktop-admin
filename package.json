@@ -5,7 +5,7 @@
   "scripts": {
     "backup": "mackup backup",
     "backup:dry": "mackup backup -n",
-    "up": "ansible-playbook -i localhost -c local playbook.yml"
+    "up": "git submodule update && ansible-playbook -i localhost -c local playbook.yml"
   },
   "keywords": [],
   "author": "",
