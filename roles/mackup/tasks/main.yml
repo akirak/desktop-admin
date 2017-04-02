@@ -1,6 +1,7 @@
 ---
 
 - name: install mackup
+  become_user: root
   packer:
     name: mackup
     state: present

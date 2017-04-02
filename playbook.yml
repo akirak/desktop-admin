@@ -3,6 +3,7 @@
 
 - hosts: all
   become: yes
+  become_user: "{{ user_name }}"
   roles:
     - mackup
     - spacemacs
