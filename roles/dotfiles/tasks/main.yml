@@ -1,0 +1,4 @@
+---
+
+- name: install dotfiles using mackup
+  command: mackup restore
