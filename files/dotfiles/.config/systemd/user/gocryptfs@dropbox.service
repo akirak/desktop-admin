@@ -2,6 +2,7 @@
 Description=Mount a gocryptfs-encrypted folder inside Dropbox
 ConditionPathIsDirectory=%h/Dropbox/encrypt/gocryptfs
 ConditionPathIsDirectory=%h/vaults
+ConditionPathExists=%h/.gocryptfs-dropbox-password
 After=dropbox.service
 BindsTo=dropbox.service
 
