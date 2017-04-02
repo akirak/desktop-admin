@@ -7,3 +7,6 @@
   roles:
     - mackup
     - spacemacs
+    - dotfiles
+    - dropbox
+    - dropbox-gocryptfs

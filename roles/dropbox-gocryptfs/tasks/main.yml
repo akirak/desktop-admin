@@ -1,0 +1,8 @@
+---
+
+- name: enable gocryptfs@dropbox service
+  systemd:
+    name: gocryptfs@dropbox
+    user: yes
+    enabled: yes
+    state: started

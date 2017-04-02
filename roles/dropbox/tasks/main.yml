@@ -1,0 +1,14 @@
+---
+
+- name: install Dropbox from AUR
+  become_user: root
+  packer:
+    name: dropbox
+    state: present
+
+- name: enable dropbox service
+  systemd:
+    name: dropbox
+    user: yes
+    enabled: yes
+    state: started
