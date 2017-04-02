@@ -1,5 +1,10 @@
 ---
 
+- name: ensure ~/vaults directory exists
+  file:
+    path: "{{ user_home }}/vaults"
+    state: directory
+
 - name: enable gocryptfs@dropbox service
   systemd:
     name: gocryptfs@dropbox
