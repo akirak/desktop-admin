@@ -1,0 +1,6 @@
+---
+
+- name: install hub
+  pacman:
+    name: hub
+    state: present
