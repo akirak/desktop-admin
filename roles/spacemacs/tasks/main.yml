@@ -4,8 +4,8 @@
     dest: "{{ user_home }}/.emacs.d"
     repo: https://github.com/syl20bnr/spacemacs.git
     update: no
-- name: install Spacemacs private layers
-  file:
-    path: "{{ user_home }}/.emacs.d/private"
-    src: "{{ playbook_dir }}/files/spacemacs-layers"
-    state: link
+# - name: install Spacemacs private layers
+#   file:
+#     path: "{{ user_home }}/.emacs.d/private"
+#     src: "{{ playbook_dir }}/files/spacemacs-layers"
+#     state: link
