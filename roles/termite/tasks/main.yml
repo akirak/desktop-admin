@@ -1,0 +1,7 @@
+---
+
+- name: install termite terminal
+  become_user: root
+  pacman:
+    name: termite
+    state: present
