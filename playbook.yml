@@ -5,12 +5,10 @@
   become: yes
   become_user: "{{ user_name }}"
   roles:
-    - mackup
-    - spacemacs
-    - dotfiles
-    - dropbox
-    - dropbox-gocryptfs
-    - hub
-    - termite
-    - aspell
-    - xmodmap
+    - { role: spacemacs, tags: [ 'writing', 'development', 'org' ] }
+    - { role: dropbox, tags: [ 'dropbox' ] }
+    - { role: dropbox-gocryptfs, tags: [ 'org', 'private' ] }
+    - { role: hub, tags: [ 'development' ] }
+    - { role: termite, tags: [ 'development', 'admin' ] }
+    - { role: aspell, tags: [ 'writing' ] }
+    - { role: xmodmap, tags: [ 'desktop' ] }

@@ -1,3 +1,4 @@
 ---
 dependencies:
   - emacs-bin
+  - dotfiles

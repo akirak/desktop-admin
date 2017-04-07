@@ -1,3 +1,4 @@
 ---
 dependencies:
   - { role: pacman-package, name: xorg-xmodmap }
+  - dotfiles
