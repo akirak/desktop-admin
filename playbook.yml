@@ -11,3 +11,5 @@
     - dropbox
     - dropbox-gocryptfs
     - hub
+    - termite
+    - aspell
