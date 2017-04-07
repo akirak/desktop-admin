@@ -1,0 +1,7 @@
+---
+
+- name: install xmodmap
+  become_user: root
+  pacman:
+    name: xorg-xmodmap
+    state: present
