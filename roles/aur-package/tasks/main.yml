@@ -1,0 +1,6 @@
+---
+- name: "install {{ name }} from AUR"
+  become_user: root
+  packer:
+    name: "{{ name }}"
+    state: present

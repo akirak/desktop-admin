@@ -1,7 +1,0 @@
----
-
-- name: install gocryptfs from AUR
-  become_user: root
-  packer:
-    name: gocryptfs
-    state: present

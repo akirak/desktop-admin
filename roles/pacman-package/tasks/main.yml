@@ -1,0 +1,7 @@
+---
+
+- name: "install {{ name }} from pacman"
+  become_user: root
+  pacman:
+    name: "{{ name }}"
+    state: present

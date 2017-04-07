@@ -1,3 +1,4 @@
 ---
 dependencies:
-  - dotfiles
+  - { role: dotfiles }
+  - { role: aur-package, name: dropbox }

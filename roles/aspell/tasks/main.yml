@@ -1,7 +1,0 @@
----
-
-- name: install aspell-en
-  become_user: root
-  pacman:
-    name: aspell-en
-    state: present

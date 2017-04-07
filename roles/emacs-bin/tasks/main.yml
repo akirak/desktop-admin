@@ -1,6 +1,0 @@
----
-- name: install emacs
-  become_user: root
-  pacman:
-    name: emacs
-    state: present
