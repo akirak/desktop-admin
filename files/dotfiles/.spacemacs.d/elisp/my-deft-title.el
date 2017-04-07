@@ -3,10 +3,6 @@
         ((string-match "'\\(.+\\)'" str) (match-string 1 str))
         (t str)))
 
-;; (defun my-deft/parse-title-from-front-matter-data (str)
-;;   (if (string-match "^title: \\(.+\\)" str)
-;;       (my-deft/strip-quotes (match-string 1 str))))
-
 (defun my-deft/parse-title-from-front-matter-data (str)
   (if (string-match "^title: \\(.+\\)" str)
       (let* ((title-text (my-deft/strip-quotes (match-string 1 str)))
