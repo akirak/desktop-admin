@@ -357,7 +357,7 @@ you should place your code here."
   (global-evil-surround-mode 1)
 
   (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
-  (spacemacs/set-leader-keys "~" 'eyebrowse-last-window-config)
+
   (defun my/new-workspace-with-current-window ()
     (interactive)
     (let* ((default-tag (buffer-name))
