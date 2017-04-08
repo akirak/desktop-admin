@@ -359,6 +359,10 @@ you should place your code here."
   (define-key minibuffer-local-map (kbd "C-h")
     (lambda () (interactive) (delete-char -1)))
 
+  (require 'my-scratch)
+  (define-key evil-window-map "n" 'my/window-new-same-mode)
+  (define-key evil-window-map (kbd "C-n") 'my/window-new-with-name)
+
   (global-evil-matchit-mode 1)
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
