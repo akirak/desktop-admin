@@ -12,3 +12,4 @@
     - { role: termite, tags: [ 'development', 'admin' ] }
     - { role: aspell, tags: [ 'writing' ] }
     - { role: xmodmap, tags: [ 'desktop' ] }
+    - { role: myrepos }
