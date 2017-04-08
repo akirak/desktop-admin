@@ -53,6 +53,7 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
+     graphviz
      deft
      chrome
      git
