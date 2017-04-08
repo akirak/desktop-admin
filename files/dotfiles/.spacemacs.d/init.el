@@ -347,6 +347,8 @@ you should place your code here."
         '((width . 150)
           (height . 50)))
 
+  (setq initial-major-mode 'lisp-interaction-mode)
+
   (define-key evil-hybrid-state-map (kbd "C-u") 'backward-kill-sentence)
   (define-key evil-hybrid-state-map (kbd "C-w") 'backward-kill-word)
   (define-key evil-hybrid-state-map (kbd "C-h") 'evil-backward-char)
