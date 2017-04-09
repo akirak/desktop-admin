@@ -367,6 +367,7 @@ you should place your code here."
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
 
+  (spacemacs/declare-prefix "o" "user-defined")
   (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
 
   (defun my/new-workspace-with-current-window ()
