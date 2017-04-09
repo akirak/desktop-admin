@@ -349,46 +349,10 @@ you should place your code here."
 
   (setq initial-major-mode 'lisp-interaction-mode)
 
-  (define-key evil-hybrid-state-map (kbd "C-u") 'backward-kill-sentence)
-  (define-key evil-hybrid-state-map (kbd "C-w") 'backward-kill-word)
-  (define-key evil-hybrid-state-map (kbd "C-h") 'evil-backward-char)
-  (define-key evil-hybrid-state-map (kbd "C-o") 'evil-execute-in-normal-state)
-
-  (define-key minibuffer-local-map (kbd "C-u") 'backward-kill-sentence)
-  (define-key minibuffer-local-map (kbd "C-w") 'backward-kill-word)
-  (define-key minibuffer-local-map (kbd "C-h")
-    (lambda () (interactive) (delete-char -1)))
-
-  (require 'my-scratch)
-  (define-key evil-window-map "n" 'my/window-new-same-mode)
-  (define-key evil-window-map (kbd "C-n") 'my/window-new-with-name)
-
+  ;; evil options
   (global-evil-matchit-mode 1)
   (global-evil-visualstar-mode)
   (global-evil-surround-mode 1)
-
-  (spacemacs/declare-prefix "o" "user-defined")
-  (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
-
-  (defun my/new-workspace-with-current-window ()
-    (interactive)
-    (let* ((default-tag (buffer-name))
-           (workspace-tag-from-user (read-from-minibuffer (concat "Tag for new workspace (" default-tag "): ")))
-           (workspace-tag (if (string-empty-p workspace-tag-from-user) default-tag workspace-tag-from-user))
-           (eyebrowse-new-workspace (buffer-name)))
-      (eyebrowse-create-window-config)
-      (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) workspace-tag)))
-
-  (defun my/close-window-or-workspace ()
-    (interactive)
-    (cond ((> (list-length (window-list)) 1)
-           (delete-window))
-          ((> (list-length (eyebrowse--get 'window-configs)) 1)
-           (eyebrowse-close-window-config))
-          ((y-or-n-p "This is the last workspace. Close the perspective? ") (spacemacs/layouts-ts-close))))
-
-  (define-key evil-window-map (kbd "T") 'my/new-workspace-with-current-window)
-  (define-key evil-window-map (kbd "q") 'my/close-window-or-workspace)
 
   ;; deft layer configuration
   (setq deft-directory my-org-directory)
@@ -413,10 +377,6 @@ you should place your code here."
   (require 'my-hugo)
   (setq hugo-project-directory "~/blog")
 
-  ;; writeroom (distraction-free) mode
-  ;; keybinding to toggle writeroom
-  (global-set-key (kbd "<S-f11>") 'writeroom-mode)
-
   ;; set a description before creating a gist
   (setq gist-ask-for-description t)
 
@@ -425,6 +385,33 @@ you should place your code here."
   (fcitx-aggressive-setup)
   (fcitx-prefix-keys-add "SPC" "M-m") ; M-m is common in Spacemacs
   (setq fcitx-use-dbus t) ; uncomment if you're using Linux
+
+  ;; evil-hybrid-state-map, insert mode in hybrid configuration
+  (define-key evil-hybrid-state-map (kbd "C-u") 'backward-kill-sentence)
+  (define-key evil-hybrid-state-map (kbd "C-w") 'backward-kill-word)
+  (define-key evil-hybrid-state-map (kbd "C-h") 'evil-backward-char)
+  (define-key evil-hybrid-state-map (kbd "C-o") 'evil-execute-in-normal-state)
+
+  ;; minibuffer-local-map
+  (define-key minibuffer-local-map (kbd "C-u") 'backward-kill-sentence)
+  (define-key minibuffer-local-map (kbd "C-w") 'backward-kill-word)
+  (define-key minibuffer-local-map (kbd "C-h")
+    (lambda () (interactive) (delete-char -1)))
+
+  ;; keybindings under Spacemacs SPC
+  (spacemacs/declare-prefix "o" "user-defined") ; Use SPC o as a prefix
+  (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
+
+  ;; evil-window-map: C-w in normal mode
+  (require 'my-scratch)
+  (require 'my-window-functions)
+  (define-key evil-window-map "n" 'my/window-new-same-mode)
+  (define-key evil-window-map (kbd "C-n") 'my/window-new-with-name)
+  (define-key evil-window-map (kbd "T") 'my/new-workspace-with-current-window)
+  (define-key evil-window-map (kbd "q") 'my/close-window-or-workspace)
+
+  ;; other normal mode keybindings
+  (global-set-key (kbd "<S-f11>") 'writeroom-mode) ; distraction-free mode
 
   )
 
