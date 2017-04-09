@@ -4,6 +4,7 @@
          (workspace-tag-from-user (read-from-minibuffer (concat "Tag for new workspace (" default-tag "): ")))
          (workspace-tag (if (string-empty-p workspace-tag-from-user) default-tag workspace-tag-from-user))
          (eyebrowse-new-workspace (buffer-name)))
+    (delete-window)
     (eyebrowse-create-window-config)
     (eyebrowse-rename-window-config (eyebrowse--get 'current-slot) workspace-tag)))
 
