@@ -398,9 +398,14 @@ you should place your code here."
   (define-key minibuffer-local-map (kbd "C-h")
     (lambda () (interactive) (delete-char -1)))
 
+  ;; evil-normal-state-map
+  (define-key evil-normal-state-map "m" 'point-to-register)
+  (define-key evil-normal-state-map "'" 'jump-to-register)
+
   ;; keybindings under Spacemacs SPC
   (spacemacs/declare-prefix "o" "user-defined") ; Use SPC o as a prefix
   (spacemacs/set-leader-keys "`" 'spacemacs/workspaces-transient-state/body)
+  (spacemacs/set-leader-keys "=" 'helm-show-kill-ring)
 
   ;; evil-window-map: C-w in normal mode
   (require 'my-scratch)
