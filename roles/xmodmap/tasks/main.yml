@@ -1,0 +1,6 @@
+---
+- name: link xmodmap configuration file
+  file:
+    src: "{{ playbook_dir }}/files/dotfiles/{{ xmodmap_file }}"
+    path: "{{ user_home }}/.Xmodmap"
+    state: link
