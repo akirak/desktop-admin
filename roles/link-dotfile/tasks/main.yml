@@ -1,0 +1,6 @@
+---
+- name: "Add a symbolic link to {{ path }} in dotfiles"
+  file:
+    src: "{{ playbook_dir }}/files/dotfiles/{{ path }}"
+    path: "{{ user_home }}/{{ path }}"
+    state: link
