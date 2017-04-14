@@ -1,14 +1,14 @@
 user-admin
 ==================
 
-This repository contains Ansible playbooks and configurations used to provision my desktop machines.
+This repository contains Ansible playbooks and configurations used to provision my desktop and laptop machines.
 
-Note that this repository probably doesn't work on machines of other people. It is published for backup and reference.
+Caution: This repository probably doesn't work on machines of other people. It is published for backup and referencing purposes.
 
 Installation
 ---------------
 
-This repository should be cloned to your `~/admin`:
+Clone this repository to `~/admin`:
 
 ```sh
 git clone git@github.com:akirak/user-admin.git ~/admin
