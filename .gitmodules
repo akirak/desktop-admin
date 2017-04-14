@@ -1,6 +1,3 @@
-[submodule "utils/ansible-aur"]
-	path = utils/ansible-aur
-	url = https://github.com/pigmonkey/ansible-aur.git
 [submodule "utils/packer"]
 	path = utils/packer
 	url = https://github.com/austinhyde/ansible-packer.git
