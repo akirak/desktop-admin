@@ -1,0 +1,28 @@
+# vim: ft=gitignore
+
+# Haskell
+.cabal-sandbox
+cabal.sandbox.config
+dist
+*.dyn_hi
+*.dyn_o
+*.hi
+*.o
+.stack-work
+
+# Vim session file
+Session.vim
+
+# Tags
+tags
+.tags*
+TAGS
+
+# JavaScript
+node_modules
+lerna-debug.log
+npm-debug.log
+.tern-port
+
+.vagrant
+*.retry

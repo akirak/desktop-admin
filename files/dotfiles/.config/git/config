@@ -1,0 +1,13 @@
+[user]
+	email = akira.komamura@gmail.com
+	name = Akira Komamura
+[alias]
+	co = checkout
+	ci = commit
+  # lab = repo lab
+[core]
+	pager = cat
+[pager]
+	diff = less
+[push]
+	default = simple
