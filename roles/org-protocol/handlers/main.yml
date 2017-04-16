@@ -1,0 +1,3 @@
+---
+- name: run update-desktop-database
+  shell: update-desktop-database
