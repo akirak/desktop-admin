@@ -23,8 +23,9 @@
          ;;; replace the title
          (if title
              (progn
-              (search-forward-regexp "^title:.*$")
-              (replace-match (concat "title: " title))))
+               (goto-char (point-min))
+               (search-forward-regexp "^title:.*$")
+               (replace-match (concat "title: " title))))
          (end-of-buffer)
          command-result)
         (message (cdr command-result)))))
