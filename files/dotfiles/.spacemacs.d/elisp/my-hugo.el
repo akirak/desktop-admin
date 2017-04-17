@@ -37,9 +37,9 @@
                 (lambda (s) (replace-regexp-in-string "\s" "-" s)))))
     (reduce 'funcall funcs :from-end t :initial-value title)))
 
-(defun hugo-new-post ()
+(defun hugo-new-post (&optional title)
   (interactive)
-  (let* ((title (read-from-minibuffer "Title of the blog post: "))
+  (let* ((title (if title title (read-from-minibuffer "Title of the blog post: ")))
          (filename-from-user (read-from-minibuffer
                               "File name (without 'post/'): "
                               (hugo-build-filename-from-title title)))
