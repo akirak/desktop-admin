@@ -390,6 +390,9 @@ you should place your code here."
           ("plain" . t)))
   (require 'my-scan-scratch)
 
+  (require 'my-worktrees)
+  (require 'my-github)
+
   ;; fcitx package
   (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
   (fcitx-aggressive-setup)
