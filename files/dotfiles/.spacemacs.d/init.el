@@ -388,6 +388,7 @@ you should place your code here."
         '(("stack (Haskell)" . akirak/scaffold-get-haskell-stack-command)
           ("npm (JavaScript etc.)" . (:command-in-directory . "npm init -y"))
           ("plain" . t)))
+  (require 'my-scan-scratch)
 
   ;; fcitx package
   (setq fcitx-active-evil-states '(insert emacs hybrid)) ; if you use hybrid mode
