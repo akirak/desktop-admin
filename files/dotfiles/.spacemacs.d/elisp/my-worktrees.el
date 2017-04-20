@@ -1,6 +1,8 @@
-(setq my/work-trees-root "~/work")
+(defcustom my/work-trees-root nil
+  "The root of working trees.")
 
-(setq my/github-personal-login "akirak")
+(defcustom my/github-personal-login nil
+  "Your account name on GitHub.")
 
 (defun my/github-personal-dir ()
   (expand-file-name (concat "github.com/" my/github-personal-login) my/work-trees-root))
@@ -17,8 +19,5 @@
       (projectile-remove-known-project dir)
       (projectile-add-known-project dest)
       )))
-
-(add-to-list 'helm-source-projectile-projects-actions
-             '("Move to github working trees" . my/move-directory-to-github-work) t)
 
 (provide 'my-worktrees)

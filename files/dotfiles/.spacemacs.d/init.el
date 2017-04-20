@@ -330,6 +330,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (define-key helm-map (kbd "C-w") 'backward-kill-word)
     (define-key helm-map (kbd "C-k") 'kill-line))
 
+  (with-eval-after-load 'helm-projectile
+    (require 'my-worktrees)
+    (add-to-list 'helm-source-projectile-projects-actions
+                 '("Move to github working trees" . my/move-directory-to-github-work) t)
+    )
+
   (with-eval-after-load 'deft
     (define-key deft-mode-map (kbd "C-p") 'widget-backward)
     (define-key deft-mode-map (kbd "C-n") 'widget-forward)
@@ -390,6 +396,8 @@ you should place your code here."
           ("plain" . t)))
   (require 'my-scan-scratch)
 
+  (setq my/work-trees-root "~/work")
+  (setq my/github-personal-login "akirak")
   (require 'my-worktrees)
   (require 'my-github)
 
