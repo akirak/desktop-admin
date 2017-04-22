@@ -6,3 +6,6 @@ checkout = git clone 'git@github.com:akirak/user-admin.git' $HOME/admin
 
 [$HOME/.spacemacs.d]
 checkout = git clone 'git@github.com:akirak/.spacemacs.d.git' $HOME/.spacemacs.d
+
+[$HOME/.config/nvim]
+checkout = git clone 'git@github.com:akirak/nvim-config.git' $HOME/.config/nvim
