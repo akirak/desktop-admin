@@ -2,3 +2,4 @@
 dependencies:
   - emacs-bin
   - dotfiles
+  - myrepos
