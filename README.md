@@ -23,6 +23,8 @@ Usage
 ./install.sh
 ```
 
+Also manually add `systemctl --user start dropbox.service` as a startup application of your desktop. 
+
 ### After updating your configuration file and/or playbook
 
 ```sh
