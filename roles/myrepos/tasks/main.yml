@@ -1,5 +1,5 @@
 ---
-- name: run mr up
-  shell: mr up
+- name: run mr checkout
+  shell: mr checkout
   args:
     chdir: "{{ user_home }}"
