@@ -1,0 +1,10 @@
+---
+- name: enable colored output of pacman
+  become: yes
+  become_user: root
+  lineinfile:
+    path: /etc/pacman.conf
+    state: present
+    line: 'Color'
+    insertafter: '[options]'
+    regexp: '^#Color'
