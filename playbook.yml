@@ -22,3 +22,4 @@
     - { role: fcitx-chinese-tw, tags: [ 'lang:zh-tw', 'fcitx' ] }
     - { role: japanese-fonts, tags: [ 'lang:ja' ] }
     - { role: chinese-fonts, tags: [ 'lang:zh-cn', 'lang:zh-tw' ] }
+    - { role: javascript, tags: [ 'javascript' ] }
