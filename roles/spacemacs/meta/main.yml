@@ -3,3 +3,4 @@ dependencies:
   - emacs-bin
   - dotfiles
   - myrepos
+  - profonts
