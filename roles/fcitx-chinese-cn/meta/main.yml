@@ -1,0 +1,5 @@
+# roles/fcitx-chinese-cn/meta/main.yml for Ansible
+---
+dependencies:
+  - fcitx
+  - { role: pacman-package, name: fcitx-libpinyin }

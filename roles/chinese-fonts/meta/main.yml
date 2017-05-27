@@ -1,0 +1,5 @@
+# roles/chinese-fonts/meta/main.yml for Ansible
+---
+dependencies:
+  # You can add other roles as dependencies
+  - noto-fonts-cjk

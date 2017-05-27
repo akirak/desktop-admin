@@ -1,0 +1,4 @@
+# roles/noto-fonts-cjk/meta/main.yml for Ansible
+---
+dependencies:
+  - { role: pacman-package, name: noto-fonts-cjk }
