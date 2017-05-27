@@ -1,10 +1,14 @@
 ---
 - name: create configuration file for nodm
+  become: yes
+  become_user: root
   template:
     src: templates/etc/nodm.conf
     dest: /etc/nodm.conf
 
 - name: enable nodm service
+  become: yes
+  become_user: root
   systemd:
     name: nodm
     daemon_reload: yes
