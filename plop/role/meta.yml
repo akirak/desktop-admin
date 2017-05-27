@@ -1,0 +1,13 @@
+# roles/{{ name }}/meta/main.yml for Ansible
+---
+dependencies:
+  # You can add other roles as dependencies
+  # - role
+  # Require dotfiles (installed using mackup)
+  # - dotfiles
+  # Set up a symbolic link manually
+  # - { role: link-dotfile, path: ".path_to_dotfile" }
+  # Installing a package using pacman (Arch Linux)
+  # - { role: pacman-package, name: {{ name }} }
+  # Installing a package from AUR (Arch Linux)
+  # - { role: aur-package, name: {{ name }} }
