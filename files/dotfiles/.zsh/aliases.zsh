@@ -6,9 +6,9 @@ alias ll="ls -al"
 alias rm="rm -i"
 alias grep='grep --color=auto --exclude-dir=.git'
 
-alias p='pacaur -S'
-alias pss='pacaur -Ss'
-alias py='pacaur -Sy'
+alias p='packer -S'
+alias pss='packer -Ss'
+alias py='packer -Sy'
 alias cd=' cd'
 
 alias e="$EDITOR"
