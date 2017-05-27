@@ -1,0 +1,9 @@
+---
+- name: clone repository of fzf
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ user_home }}/.fzf"
+    depth: 1
+
+- name: run fzf install
+  shell: "{{ user_home }}/.fzf/install"

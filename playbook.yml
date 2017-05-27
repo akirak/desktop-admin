@@ -23,3 +23,5 @@
     - { role: japanese-fonts, tags: [ 'lang:ja' ] }
     - { role: chinese-fonts, tags: [ 'lang:zh-cn', 'lang:zh-tw' ] }
     - { role: javascript, tags: [ 'javascript' ] }
+    - { role: zsh, tags: [ 'admin', 'zsh' ] }
+    - { role: fzf, tags: [ 'zsh' ] }

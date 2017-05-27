@@ -1,0 +1,12 @@
+---
+- name: install pure prompt for zsh
+  git:
+    dest: "{{ user_home }}/.zsh/pure"
+    repo: https://github.com/sindresorhus/pure.git
+    depth: 1
+
+- name: clone oh-my-zsh repository
+  git:
+    dest: "{{ user_home }}/.oh-my-zsh"
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    depth: 1

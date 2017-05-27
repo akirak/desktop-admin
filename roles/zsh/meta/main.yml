@@ -1,0 +1,7 @@
+# roles/zsh/meta/main.yml for Ansible
+---
+dependencies:
+  - dotfiles
+  - { role: link-dotfile, path: .zsh }
+  - { role: pacman-package, name: zsh }
+  - { role: aur-package, name: antibody }
