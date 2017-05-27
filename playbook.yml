@@ -27,3 +27,4 @@
     - { role: zsh, tags: [ 'admin', 'zsh' ] }
     - { role: fzf, tags: [ 'zsh' ] }
     - { role: pulseaudio, when: ansible_hostname == 'empower' }
+    - { role: nodm, tags: [ 'nodm', 'desktop' ] }

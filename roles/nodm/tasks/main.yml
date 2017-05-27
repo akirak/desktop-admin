@@ -1,0 +1,11 @@
+---
+- name: create configuration file for nodm
+  template:
+    src: templates/etc/nodm.conf
+    dest: /etc/nodm.conf
+
+- name: enable nodm service
+  systemd:
+    name: nodm
+    daemon_reload: yes
+    enabled: yes

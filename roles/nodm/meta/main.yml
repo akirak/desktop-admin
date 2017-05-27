@@ -1,0 +1,5 @@
+# roles/nodm/meta/main.yml for Ansible
+---
+dependencies:
+  - dotfiles
+  - { role: pacman-package, name: nodm }
