@@ -1,2 +1,3 @@
 *.retry
 files/dotfiles/.config/systemd/user/*.wants
+files/dotfiles/.zsh/pure
