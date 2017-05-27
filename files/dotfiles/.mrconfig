@@ -1,4 +1,8 @@
 [DEFAULT]
+git_merge_ff =
+    git fetch origin
+    git merge --ff-only origin/master
+
 include = cat ~/.mrconfig.d/*.cfg
 
 [$HOME/admin]
