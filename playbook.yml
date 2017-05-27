@@ -16,3 +16,4 @@
     - { role: xmodmap, tags: [ 'desktop' ] }
     - { role: myrepos }
     - { role: org-protocol, tags: [ 'org' ] }
+    - { role: nvim, tags: [ 'vim', 'deprecated' ] }
