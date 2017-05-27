@@ -1,0 +1,12 @@
+[Unit]
+Description=Fix PulseAudio after resume from suspend
+After=suspend.target
+
+[Service]
+User=%I
+Type=oneshot
+ExecStartPre=/usr/bin/pulseaudio --kill
+ExecStart=/usr/bin/pulseaudio --start
+
+[Install]
+WantedBy=suspend.target

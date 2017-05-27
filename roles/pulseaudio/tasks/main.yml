@@ -1,0 +1,15 @@
+---
+- name: install resume-fix-pulseaudio@.service
+  become: yes
+  become_user: root
+  copy: 
+    dest: /etc/systemd/system/resume-fix-pulseaudio@.service
+    src: files/systemd/system/resume-fix-pulseaudio@.service
+
+- name: enable resume-fix-pulseaudio@.service
+  become: yes
+  become_user: root
+  systemd:
+    name: "resume-fix-pulseaudio@{{ user_name }}.service"
+    daemon_reload: yes
+    enabled: yes
