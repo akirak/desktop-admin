@@ -6,7 +6,7 @@
     "backup": "mackup backup",
     "backup:dry": "mackup backup -n",
     "new-role": "plop role",
-    "up": "git submodule update --depth 1 --recursive && ansible-playbook -i localhost -c local -e user_name=`whoami` playbook.yml"
+    "up": "./update.sh"
   },
   "keywords": [],
   "author": "",
