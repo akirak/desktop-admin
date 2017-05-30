@@ -1,0 +1,10 @@
+---
+- name: add haskell-core repository to pacman.conf
+  become: yes
+  become_user: root
+  blockinfile:
+    path: /etc/pacman.conf
+    insertbefore: '^\[community\]$'
+    state: present
+    block: "[haskell-core]\nServer = http://xsounds.org/~haskell/core/$arch"
+    marker: "# {mark} haskell-core"

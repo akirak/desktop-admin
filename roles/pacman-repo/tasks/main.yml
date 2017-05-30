@@ -1,0 +1,9 @@
+---
+- name: "add {{ name }} repository to pacman.conf"
+  become: yes
+  become_user: root
+  blockinfile:
+    path: /etc/pacman.conf
+    state: present
+    block: "[{{ name }}]\n{{ props }}"
+    marker: "# {mark} {{ name }}"

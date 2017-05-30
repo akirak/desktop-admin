@@ -29,3 +29,8 @@
     - { role: fzf, tags: [ 'zsh' ] }
     - { role: pulseaudio, when: ansible_hostname == 'empower' }
     - { role: nodm, tags: [ 'nodm', 'desktop' ] }
+    - { role: pacman-haskell-core, tags: [ 'haskell' ] }
+    - { role: pacman-repo, tags: [ 'archlinuxfr' ], name: archlinuxfr,
+        props: "SigLevel = Never\nServer = http://repo.archlinux.fr/$arch" }
+    - { role: pacman-repo, tags: [ 'archlinuxcn' ], name: archlinuxcn,
+        props: "SigLevel = Optional TrustedOnly\nServer = https://cdn.repo.archlinuxcn.org/$arch" }
