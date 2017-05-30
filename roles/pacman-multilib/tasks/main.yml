@@ -1,0 +1,17 @@
+---
+- become: yes
+  become_user: root
+  block:
+    - name: add multilib repository to pacman.conf (1)
+      lineinfile:
+        line: '[multilib]'
+        regexp: '^#?\[multilib\]$'
+        path: /etc/pacman.conf
+        state: present
+    - name: add multilib repository to pacman.conf (2)
+      lineinfile:
+        line: 'Include = /etc/pacman.d/mirrorlist'
+        insertafter: '^\[multilib\]'
+        regexp: '#?Include = /etc/pacman\.d/mirrorlist'
+        path: /etc/pacman.conf
+        state: present
