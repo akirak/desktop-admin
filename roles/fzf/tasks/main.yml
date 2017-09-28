@@ -7,4 +7,4 @@
     update: yes
 
 - name: run fzf install
-  shell: "{{ user_home }}/.fzf/install"
+  shell: "{{ user_home }}/.fzf/install --no-update-rc --key-bindings --completion"
