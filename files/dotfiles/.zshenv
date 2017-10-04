@@ -19,6 +19,10 @@ if [[ -x ruby ]]; then
 fi
 PATH="$HOME/.node_modules/bin:$PATH"
 PATH="$HOME/.yarn-config/global/node_modules/.bin:$PATH"
+personal_workflow_scripts_dir=$HOME/org/personal-workflow/scripts
+if [[ -d ${personal_workflow_scripts_dir} ]]; then
+    PATH="${personal_workflow_scripts_dir}:$PATH"
+fi
 export PATH
 
 export npm_config_prefix=~/.node_modules
