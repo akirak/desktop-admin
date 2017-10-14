@@ -28,7 +28,7 @@ After=local-fs.target network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/dropbox/dropboxd
+ExecStart=/bin/sh -c %h/.dropbox-dist/dropboxd
 
 [Install]
 WantedBy=multi-user.target
