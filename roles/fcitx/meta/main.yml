@@ -1,7 +1,7 @@
 # roles/fcitx/meta/main.yml for Ansible
 ---
 dependencies:
-  - { role: pacman-package, name: fcitx }
-  - { role: pacman-package, name: fcitx-configtool }
-  - { role: pacman-package, name: fcitx-gtk2 }
-  - { role: pacman-package, name: fcitx-gtk3 }
+  - { role: package, pacman: fcitx }
+  - { role: package, pacman: fcitx-configtool }
+  - { role: package, pacman: fcitx-gtk2 }
+  - { role: package, pacman: fcitx-gtk3 }

@@ -3,5 +3,5 @@
 dependencies:
   - dotfiles
   - { role: link-dotfile, path: .zsh }
-  - { role: pacman-package, name: zsh }
+  - { role: package, pacman: zsh }
   - { role: aur-package, name: antibody }

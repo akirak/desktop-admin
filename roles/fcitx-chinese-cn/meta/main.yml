@@ -2,4 +2,4 @@
 ---
 dependencies:
   - fcitx
-  - { role: pacman-package, name: fcitx-libpinyin }
+  - { role: package, pacman: fcitx-libpinyin }

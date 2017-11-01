@@ -1,0 +1,8 @@
+---
+
+- when: ansible_os_family == "Arch Linux"
+  name: "install {{ pacman }} from pacman"
+  become_user: root
+  pacman:
+    name: "{{ pacman }}"
+    state: present

@@ -5,3 +5,7 @@
   pacman:
     name: "{{ name }}"
     state: present
+
+- name: "show deprecated warning"
+  debug:
+    msg: "pacman-package role is deprecated. Tweak the role using pacman-package to install {{ name }}."

@@ -2,4 +2,4 @@
 ---
 dependencies:
   - fcitx
-  - { role: pacman-package, name: fcitx-mozc }
+  - { role: package, pacman: fcitx-mozc }

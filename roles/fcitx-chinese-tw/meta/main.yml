@@ -2,4 +2,4 @@
 ---
 dependencies:
   - fcitx
-  - { role: pacman-package, name: fcitx-chewing }
+  - { role: package, pacman: fcitx-chewing }
