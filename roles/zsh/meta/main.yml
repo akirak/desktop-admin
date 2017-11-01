@@ -4,4 +4,4 @@ dependencies:
   - dotfiles
   - { role: link-dotfile, path: .zsh }
   - { role: package, pacman: zsh }
-  - { role: aur-package, name: antibody }
+  - { role: package, use_archlinux_aur: yes, aur: antibody }
