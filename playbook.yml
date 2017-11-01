@@ -1,5 +1,13 @@
 ---
-- include: packer.yml
+# Install packer for AUR support if the operating system is Arch Linux
+- hosts: all
+  tasks:
+    - name: Check OS distribution
+      setup:
+        filter: ansible_os_family
+      register: distribution
+    - when: distribution == "Arch Linux"
+      import_tasks: packer.yml
 
 - hosts: all
   vars_files:
