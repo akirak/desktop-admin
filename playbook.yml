@@ -1,5 +1,13 @@
 ---
-- include: packer.yml
+# Install packer for AUR support if the operating system is Arch Linux
+- hosts: all
+  tasks:
+    - name: Check OS distribution
+      setup:
+        filter: ansible_os_family
+      register: distribution
+    - when: distribution == "Arch Linux"
+      import_tasks: packer.yml
 
 - hosts: all
   vars_files:
@@ -7,8 +15,7 @@
   become: yes
   become_user: "{{ user_name }}"
   roles:
-    - { role: pacman-multilib }
-    - { role: pacman-color }
+    - { role: archlinux, when: ansible_os_family == "Arch Linux" }
     - { role: spacemacs, tags: [ 'writing', 'development', 'org' ] }
     - { role: dropbox, tags: [ 'dropbox' ] }
     - { role: dropbox-gocryptfs, tags: [ 'org', 'private' ] }
@@ -29,9 +36,4 @@
     - { role: fzf, tags: [ 'zsh' ] }
     # - { role: pulseaudio, when: ansible_hostname == 'empower' }
     # - { role: nodm, tags: [ 'nodm', 'desktop' ] }
-    - { role: pacman-haskell-core, tags: [ 'haskell' ] }
-    - { role: pacman-repo, tags: [ 'archlinuxfr' ], name: archlinuxfr,
-        props: "SigLevel = Never\nServer = http://repo.archlinux.fr/$arch" }
-    - { role: pacman-repo, tags: [ 'archlinuxcn' ], name: archlinuxcn,
-        props: "SigLevel = Optional TrustedOnly\nServer = https://cdn.repo.archlinuxcn.org/$arch" }
     - { role: github-personal, tags: [ 'github' ] }

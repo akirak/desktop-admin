@@ -1,4 +1,4 @@
 ---
 dependencies:
   - { role: dotfiles }
-  - { role: aur-package, name: dropbox }
+  - { role: package, use_archlinux_aur: yes, aur: dropbox }

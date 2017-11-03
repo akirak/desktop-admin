@@ -1,4 +1,4 @@
 # roles/javascript/meta/main.yml for Ansible
 ---
 dependencies:
-  - { role: pacman-package, name: yarn }
+  - { role: package, pacman: yarn }

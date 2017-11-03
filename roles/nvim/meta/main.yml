@@ -2,4 +2,4 @@
 dependencies:
   - dotfiles
   - myrepos
-  - { role: pacman-package, name: neovim }
+  - { role: package, pacman: neovim }
