@@ -17,3 +17,13 @@
   packer:
     name: "{{ aur }}"
     state: present
+
+- when: ansible_os_family == "Solus"
+  name: "install {{ eopkg }} using eopkg"
+  block:
+    - when: eopkg is not defined
+      fail:
+        msg: "parameter eopkg is not defined"
+
+    - become_user: root
+      shell: "eopkg install -y {{ eopkg }}"

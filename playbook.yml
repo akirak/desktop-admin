@@ -12,6 +12,9 @@
 - hosts: all
   vars_files:
     - [ "vars/{{ ansible_hostname }}.yml", "vars/host_default.yml" ]
+  vars_prompt:
+    - name: ansible_become_pass
+      prompt: "enter a password for the user"
   become: yes
   become_user: "{{ user_name }}"
   roles:
