@@ -1,5 +1,14 @@
 ---
 
+- when: ansible_os_family == "Solus"
+  name: install Mackup from pip
+  become_user: root
+  block:
+    - shell: eopkg install -y pip
+    - pip:
+        name: mackup
+        state: present
+
 - name: install mackup.cfg
   file:
     src: "{{ playbook_dir }}/files/dotfiles/.mackup.cfg"
