@@ -1,0 +1,2 @@
+---
+myrepos_git_path: "{{ user_home }}/.myrepos-src"

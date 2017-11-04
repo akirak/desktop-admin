@@ -1,0 +1,14 @@
+---
+
+- name: clone the Git repository of myrepos
+  git:
+    repo: git://myrepos.branchable.com/
+    update: yes
+    dest: "{{ myrepos_git_path }}"
+
+- name: copy the executable of myrepos to /usr/bin
+  become_user: root
+  copy:
+    dest: /usr/bin
+    src: "{{ myrepos_git_path }}/mr"
+    mode: a+x

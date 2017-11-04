@@ -1,4 +1,5 @@
 ---
 dependencies:
-  - { role: package, use_archlinux_aur: yes, aur: myrepos }
+  - { role: package, use_archlinux_aur: yes, aur: myrepos, when: ansible_os_family != "Solus" }
+  - { when: ansible_os_family == "Solus", role: myrepos-git }
   - dotfiles
