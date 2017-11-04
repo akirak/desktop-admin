@@ -2,4 +2,4 @@
 ---
 dependencies:
   # Installing a package using pacman (Arch Linux)
-  - { role: package, pacman: adobe-source-code-pro-fonts }
+  - { role: package, pacman: adobe-source-code-pro-fonts, eopkg: source-code-pro }
