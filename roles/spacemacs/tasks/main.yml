@@ -9,4 +9,4 @@
   git:
     dest: "{{ user_home }}/.spacemacs.d"
     repo: git@github.com:akirak/spacemacs.d
-    update: yes
+    update: no

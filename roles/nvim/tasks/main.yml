@@ -3,7 +3,7 @@
   git:
     dest: "{{ user_home }}/.config/nvim"
     repo: git@github.com:akirak/nvim-config.git
-    update: yes
+    update: no
 
 - name: 'install nvim plugins'
   shell: 'nvim +PluginInstall +qall'
