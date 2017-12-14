@@ -1,0 +1,12 @@
+#!/bin/bash
+python <<PYTHON | fzf -m | xargs -d'\n' calibredb add
+import os.path
+import glob
+
+root = os.path.expanduser('~/Dropbox/Apps/Manning Books')
+files = glob.glob(os.path.join(root, '**/*.epub'))
+result = sorted(list(map(lambda f: (f, os.path.getctime(f)), files)), key=lambda t: t[1], reverse=True)
+candidates = list(map(lambda f: f[0], result))
+for c in candidates:
+    print(c)
+PYTHON

@@ -38,6 +38,7 @@
     - { role: haskell-stack, tags: [ 'haskell' ] }
     # - { role: pulseaudio, when: ansible_hostname == 'empower' }
     # - { role: nodm, tags: [ 'nodm', 'desktop' ] }
+    - { role: user-scripts }
     - { role: github-personal, tags: [ 'github', 'symlink', 'akirak' ] }
     # Run this in the very end of this playbook
     - { role: zshenv-finalize, tags: [ 'zsh' ] }
