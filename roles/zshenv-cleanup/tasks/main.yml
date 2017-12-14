@@ -1,0 +1,9 @@
+- name: Clean up ~/.zshenv.d
+  file:
+    path: '{{ zshenv_dir }}'
+    state: absent
+
+- name: Re-create ~/.zshenv.d
+  file:
+    path: '{{ zshenv_dir }}'
+    state: directory

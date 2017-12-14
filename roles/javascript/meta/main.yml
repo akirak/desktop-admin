@@ -2,3 +2,4 @@
 ---
 dependencies:
   - { role: package, pacman: yarn }
+  - { role: zshenv-add, template: javascript }

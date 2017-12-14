@@ -1,0 +1,4 @@
+# roles/zshenv-add/meta/main.yml for Ansible
+---
+dependencies:
+  - zshenv-cleanup

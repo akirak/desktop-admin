@@ -1,0 +1,12 @@
+- name: Delete the currently existing ~/.zshenv
+  file:
+    path: '{{ zshenv_file }}'
+    state: absent
+
+- name: Produce the final ~/.zshenv
+  shell: "cat {{ zshenv_dir }}/*.zsh > {{ zshenv_file }}"
+
+- name: Clean up ~/.zshenv.d
+  file:
+    path: '{{ zshenv_dir }}'
+    state: absent

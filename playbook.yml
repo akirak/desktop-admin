@@ -32,7 +32,12 @@
     - { role: chinese-fonts, tags: [ 'lang:zh-cn', 'lang:zh-tw' ] }
     - { role: javascript, tags: [ 'javascript' ] }
     - { role: zsh, tags: [ 'admin', 'zsh' ] }
+    - { role: zshenv-add, template: 'apikeys' }
+    - { role: zshenv-add, template: 'chromium' }
     - { role: fzf, tags: [ 'zsh' ] }
+    - { role: haskell-stack, tags: [ 'haskell' ] }
     # - { role: pulseaudio, when: ansible_hostname == 'empower' }
     # - { role: nodm, tags: [ 'nodm', 'desktop' ] }
     - { role: github-personal, tags: [ 'github', 'symlink', 'akirak' ] }
+    # Run this in the very end of this playbook
+    - { role: zshenv-finalize, tags: [ 'zsh' ] }

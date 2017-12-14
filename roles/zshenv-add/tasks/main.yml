@@ -1,0 +1,4 @@
+- name: "Generate .zshenv for {{ template }}"
+  template:
+    src: "templates/zshenv/{{ template }}.zsh"
+    dest: "{{ zshenv_dir }}/{{ template }}.zsh"
