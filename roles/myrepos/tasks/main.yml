@@ -1,5 +1,0 @@
----
-- name: run mr checkout
-  shell: mr checkout
-  args:
-    chdir: "{{ user_home }}"

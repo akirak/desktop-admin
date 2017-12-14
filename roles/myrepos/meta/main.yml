@@ -1,4 +1,0 @@
----
-dependencies:
-  - { role: package, use_archlinux_aur: yes, aur: myrepos }
-  - dotfiles

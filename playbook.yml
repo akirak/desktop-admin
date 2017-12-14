@@ -23,7 +23,6 @@
     - { role: termite, tags: [ 'development', 'admin' ] }
     - { role: aspell, tags: [ 'writing' ] }
     - { role: xmodmap, tags: [ 'desktop' ] }
-    - { role: myrepos }
     - { role: org-protocol, tags: [ 'org' ] }
     - { role: nvim, tags: [ 'vim', 'deprecated' ] }
     - { role: fcitx-japanese, tags: [ 'lang:ja', 'fcitx' ] }
