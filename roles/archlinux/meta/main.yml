@@ -3,7 +3,7 @@
 dependencies:
   - pacman-multilib
   - pacman-color
-  - { role: pacman-haskell-core, tags: [ 'haskell' ] }
+  # - { role: pacman-haskell-core, tags: [ 'haskell' ] }
   - { role: pacman-repo, tags: [ 'archlinuxfr' ], name: archlinuxfr,
       props: "SigLevel = Never\nServer = http://repo.archlinux.fr/$arch" }
   - { role: pacman-repo, tags: [ 'archlinuxcn' ], name: archlinuxcn,
