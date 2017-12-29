@@ -1,0 +1,15 @@
+---
+- name: install LightDM package
+  pacman:
+    name: lightdm
+    state: present
+
+- name: install a greeter for LightDM
+  packer:
+    name: lightdm-mini-greeter
+    state: present
+
+- name: enable LightDM
+  systemd:
+    name: lightdm
+    enabled: yes

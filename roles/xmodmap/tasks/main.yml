@@ -1,6 +1,12 @@
 ---
+- name: include variables for xmodmap
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_hostname }}.yml"
+    - "default.yml"
+
 - name: link xmodmap configuration file
   file:
-    src: "{{ playbook_dir }}/files/dotfiles/{{ xmodmap_file }}"
+    src: "{{ dotfiles_dir }}/{{ xmodmap_file }}"
     path: "{{ user_home }}/.Xmodmap"
     state: link

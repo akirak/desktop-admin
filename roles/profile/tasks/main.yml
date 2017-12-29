@@ -1,0 +1,5 @@
+---
+- blockinfile:
+    block: "{{ content }}"
+    path: "{{ lookup('env', 'HOME') }}/{{ dest }}"
+    marker: "# {mark} {{ name }}"

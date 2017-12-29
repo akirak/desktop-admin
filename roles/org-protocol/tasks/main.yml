@@ -1,7 +1,7 @@
 ---
-- name: check if mimeapps.list contains org-protocol entry
+- name: ensure mimeapps.list contains an entry for org-protocol
   ini_file:
-    dest: "{{ user_home }}/.local/share/applications/mimeapps.list"
+    dest: "{{ '~/.local/share/applications/mimeapps.list' | expanduser }}"
     section: "Default Applications"
     option: x-scheme-handler/org-protocol
     value: emacsclient.desktop

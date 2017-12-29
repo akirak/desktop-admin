@@ -1,0 +1,21 @@
+---
+- name: check the user name on the target
+  command: whoami
+  register: whoami
+
+- when: (whoami.stdout != 'root') and (user_name is not defined)
+  name: set the user name based on the result of whoami
+  set_fact:
+    user_name: "{{ whoami.stdout }}"
+
+- when: >
+    (whoami.stdout == 'root') and (user_name is not defined)
+    and (ansible_os_family == 'Archlinux')
+  name: set the fallback user name 'arch'
+  set_fact:
+    user_name: arch
+
+- when: user_name is not defined
+  name: fail if user_name is undefined
+  fail:
+    msg: "You must define user_name to configure the machine"

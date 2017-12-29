@@ -1,0 +1,10 @@
+---
+- name: delete ~/.zshenv.d
+  file:
+    path: "{{ zshenv_dir }}"
+    state: absent
+
+- name: create new ~/.zshenv.d
+  file:
+    path: "{{ zshenv_dir }}"
+    state: directory

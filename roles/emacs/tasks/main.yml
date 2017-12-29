@@ -1,0 +1,21 @@
+---
+- name: install emacs
+  become: yes
+  package:
+    name: emacs
+    state: present
+  tags: package
+
+- name: set EDITOR to emacsclient
+  include_role: name=profile
+  vars:
+    dest: .zshenv
+    name: editor
+    content: |
+      # Set the default editor to emacsclient
+      export EDITOR="emacsclient --alternate-editor=emacs"
+
+- name: install a desktop file for emacsclient
+  copy:
+    src: emacsclient.desktop
+    dest: "{{ '~/.local/share/applications/emacsclient.desktop' | expanduser }}"

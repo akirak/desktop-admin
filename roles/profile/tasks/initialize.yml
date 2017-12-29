@@ -1,0 +1,6 @@
+---
+- name: create initial ~/.zshenv
+  copy:
+    dest: "{{ '~/.zshenv' | expanduser }}"
+    src: zshenv
+  tags: zsh

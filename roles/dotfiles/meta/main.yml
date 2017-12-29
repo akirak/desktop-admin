@@ -1,3 +1,4 @@
 ---
 dependencies:
-  - mackup
+  # required for installing mackup
+  - python-pip2

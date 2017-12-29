@@ -1,12 +1,34 @@
 ---
+- name: install zsh
+  # Use a generic package manager to install zsh
+  package:
+    name: zsh
+  become: yes
+
+# My zshrc requires utility scripts in .zsh directory contained in this repository. 
+# You have to create a symbolic link from ~/.zsh to the equivalent in dotfiles directory,
+# but it is handled by mackup via the custom configuration contained in this repository. 
+# Hence dotfiles role is a dependency of this zsh role. 
+
+# This is handled by mackup
+# - name: "Add a symbolic link to .zsh directory in dotfiles"
+#   file:
+#     src: "{{ dotfiles_dir }}/.zsh"
+#     path: "{{ user_home }}/.zsh"
+#     state: link
+
+# Use antibody, a plugin manager for zsh. See my zshrc
+- name: include tasks to install antibody
+  include_tasks: antibody.yml
+
 - name: install pure prompt for zsh
   git:
-    dest: "{{ user_home }}/.zsh/pure"
+    dest: "{{ '~/.zsh/pure' | expanduser }}"
     repo: https://github.com/sindresorhus/pure.git
     depth: 1
 
 - name: clone oh-my-zsh repository
   git:
-    dest: "{{ user_home }}/.oh-my-zsh"
+    dest: "{{ '~/.oh-my-zsh' | expanduser }}"
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     depth: 1

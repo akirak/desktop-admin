@@ -1,0 +1,9 @@
+---
+- name: check the user
+  command: whoami
+  register: whoami
+
+- name: fail if the user is root
+  when: whoami.stdout == 'root'
+  fail:
+    msg: You must run this playbook as a normal user, not root

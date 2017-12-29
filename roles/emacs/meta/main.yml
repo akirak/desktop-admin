@@ -1,0 +1,4 @@
+---
+dependencies:
+  - name: org-protocol
+    tags: org-protocol

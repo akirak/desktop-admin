@@ -1,0 +1,4 @@
+---
+# include tasks depending on the distribution
+- when: ansible_os_family == 'Archlinux'
+  include_tasks: archlinux.yml

@@ -1,0 +1,22 @@
+---
+- tags: [ 'multilib' ]
+  become: yes
+  name: add multilib repository to pacman.conf (1)
+  blockinfile:
+    path: /etc/pacman.conf
+    state: present
+    block: "[multilib]\nInclude = /etc/pacman.d/mirrorlist"
+    marker: "# multilib {mark}"
+
+- name: "add more repositories to pacman.conf"
+  blockinfile:
+    path: /etc/pacman.conf
+    state: present
+    block: "[{{ item.name }}]\n{{ item.props }}"
+    marker: "# {mark} {{ item.name }}"
+  become: yes
+  with_items:
+    - name: archlinuxfr
+      props: "SigLevel = Never\nServer = http://repo.archlinux.fr/$arch" 
+    - name: archlinuxcn
+      props: "SigLevel = Optional TrustedOnly\nServer = https://cdn.repo.archlinuxcn.org/$arch" 

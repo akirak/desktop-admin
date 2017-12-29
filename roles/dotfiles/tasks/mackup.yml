@@ -1,0 +1,27 @@
+---
+- name: install mackup using pip
+  pip:
+    name: mackup
+    state: present
+    executable: pip2
+  become: yes
+
+- name: install mackup.cfg
+  file:
+    src: "{{ dotfiles_dir }}/.mackup.cfg"
+    dest: "{{ '~/.mackup.cfg' | expanduser }}"
+    state: link
+
+- name: update path to dotfiles
+  # The configuration file in the repository is directly modified in this task. 
+  # To avoid conflicts in configuration files between multiple hosts,
+  # it is always recommended to clone the playbook to the same relative path
+  # from the home directory,
+  lineinfile:
+    line: "path = {{ dotfiles_dir | dirname | relpath(lookup('env', 'HOME')) }}"
+    path: "{{ dotfiles_dir }}/.mackup.cfg"
+    regexp: '^path\s*='
+    insertafter: '^\[storage\]'
+
+- name: run mackup restore to symlink dotfiles
+  command: mackup restore

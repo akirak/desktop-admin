@@ -1,7 +1,0 @@
----
-
-- name: install mackup.cfg
-  file:
-    src: "{{ playbook_dir }}/files/dotfiles/.mackup.cfg"
-    dest: "{{ user_home }}/.mackup.cfg"
-    state: link

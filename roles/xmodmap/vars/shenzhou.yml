@@ -1,0 +1,3 @@
+# Specify Xmodmap for a specific host
+---
+xmodmap_file: .Xmodmap-china-laptop

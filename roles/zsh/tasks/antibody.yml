@@ -1,0 +1,22 @@
+---
+- name: check an existence of antibody
+  stat:
+    path: /usr/local/bin/antibody
+  register: antibody_bin
+
+- name: install antibody
+  when: not antibody_bin.stat.exists
+  shell: "curl -sL git.io/antibody | bash -s"
+  args:
+    warn: no
+  # block:
+  #   # equivalent to 'curl -sL git.io/antibody | bash -s'
+  #   - name: Get an antibody installer
+  #     uri:
+  #       url: https://git.io/antibody
+  #       follow_redirects: yes
+  #     register: antibody_bootstrapper
+  #   - name: Run the antibody installation script using a shell
+  #     # raw: ('{{ antibody_bootstrapper.msg }}')
+  #     raw: "{{ antibody_bootstrapper.msg }}"
+  #     args: executable=/bin/bash

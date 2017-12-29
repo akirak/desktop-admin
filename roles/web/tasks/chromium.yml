@@ -1,0 +1,14 @@
+---
+- name: select Chrome or Chromium depending on the distribution
+  package:
+    name: "{{ chromium_package }}"
+    state: present
+
+- name:
+  include_role: name=profile
+  vars:
+    dest: .zshenv
+    name: browser
+    content: |
+      # Set the default browser to chromium
+      export BROWSER=chromium
