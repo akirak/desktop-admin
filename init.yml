@@ -1,0 +1,27 @@
+---
+- hosts: all
+
+  vars:
+    group_name: "{{ user_name }}"
+
+  tasks:
+
+    - name: create a UNIX group for the user
+      group:
+        name: "{{ group_name }}"
+        state: present
+
+    - name: create the UNIX user
+      user:
+        name: "{{ user_name }}"
+        createhome: yes
+        generate_ssh_key: yes
+        group: "{{ group_name }}"
+      become: yes
+
+    - name: add the user to sudoers
+      lineinfile:
+        path: /etc/sudoers
+        insertafter: "^root "
+        line: "{{ user_name }} ALL=(ALL) NOPASSWD: ALL"
+        regexp: "^{{ user_name }}\\s"
