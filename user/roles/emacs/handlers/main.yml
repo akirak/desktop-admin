@@ -1,3 +1,4 @@
 ---
 - name: update-desktop-database
   shell: update-desktop-database
+  ignore_errors: yes
