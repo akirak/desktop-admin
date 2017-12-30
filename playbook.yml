@@ -1,3 +1,0 @@
----
-- import_playbook: root-playbook.yml
-# - import_playbook: user-playbook.yml

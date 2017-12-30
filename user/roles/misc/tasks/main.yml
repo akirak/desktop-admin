@@ -1,0 +1,3 @@
+---
+- when: ansible_os_family == 'Archlinux'
+  include_tasks: arch-linux.yml

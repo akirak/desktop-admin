@@ -1,0 +1,8 @@
+---
+- name: install noto-fonts-cjk package
+  package:
+    name: noto-fonts-cjk
+    state: present
+  become: yes
+  tags: [ 'japanese', 'chinese', 'Japan', 'China', 'Taiwan' ]
+  when: ansible_os_family == 'Archlinux'

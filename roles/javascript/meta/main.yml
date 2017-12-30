@@ -1,5 +1,0 @@
-# roles/javascript/meta/main.yml for Ansible
----
-dependencies:
-  - { role: package, pacman: yarn }
-  - { role: zshenv-add, template: javascript }

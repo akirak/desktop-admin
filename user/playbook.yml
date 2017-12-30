@@ -1,0 +1,64 @@
+---
+- hosts: all
+
+  vars_files:
+    # Load names of packages depending on the distribution
+    - [ "vars/apps_{{ ansible_os_family }}.yml", "vars/apps_default.yml" ]
+
+  vars:
+    # To install dotfiles, you must give playbook_dir as an extra variable
+    dotfiles_dir: "{{ playbook_dir }}/dotfiles"
+
+  pre_tasks:
+
+    - name: check if this playbook is run as a user
+      include_tasks: tasks/check-user.yml
+
+    - include_role:
+        name: profile
+        tasks_from: initialize.yml
+
+  roles:
+
+    # TODO
+    # - name: dropbox
+    #   tags: [ 'dropbox' ]
+
+    # TODO
+    # - name: keybase
+    #   tags: [ 'keybase' ]
+
+    - name: dotfiles
+      tags: [ 'dotfiles' ]
+
+    # emacs and emacsclient
+    - name: emacs
+      tags: [ 'emacs' ]
+
+    # web browser
+    - name: web
+      tags: [ 'web', 'x11' ]
+
+    # zsh executable as well as config
+    - name: zsh
+      tags: [ 'zsh', 'dotfiles' ]
+
+    # fonts and input method (only Chinese and Japanese for now)
+    - name: cjk
+      tags: [ 'x11', 'cjk' ]
+
+    # generate ~/.Xmodmap depending on the host name
+    - name: xmodmap
+      tags: [ 'x11', 'dotfiles' ]
+
+    - name: javascript
+      tags: [ 'javascript' ]
+
+    - name: misc
+      tags: misc
+
+  post_tasks:
+
+    - include_role:
+        name: profile
+        tasks_from: finalize.yml

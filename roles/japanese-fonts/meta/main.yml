@@ -1,4 +1,0 @@
-# roles/japanese-fonts/meta/main.yml for Ansible
----
-dependencies:
-  - noto-fonts-cjk

@@ -1,0 +1,6 @@
+---
+- include_tasks: fcitx.yml
+  tags: fcitx
+
+- include_tasks: fonts.yml
+  tags: fonts

@@ -1,0 +1,34 @@
+---
+- name: install fcitx
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - fcitx
+    - fcitx-configtool
+    - fcitx-gtk2
+    - fcitx-gtk3
+  notify:
+    - start fcitx
+
+- name: install fcitx-mozc
+  package:
+    name: fcitx-mozc
+    state: present
+  become: yes
+  tags: [ 'japanese', 'Japan' ]
+
+- name: install fcitx-libpinyin
+  package:
+    name: fcitx-libpinyin
+    state: present
+  become: yes
+  tags: [ 'chinese', 'China' ]
+
+- name: install fcitx-chewing
+  package:
+    name: fcitx-chewing
+    state: present
+  become: yes
+  tags: [ 'chinese', 'Taiwan' ]

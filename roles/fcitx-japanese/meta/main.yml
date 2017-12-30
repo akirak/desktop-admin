@@ -1,5 +1,0 @@
-# roles/fcitx-japanese/meta/main.yml for Ansible
----
-dependencies:
-  - fcitx
-  - { role: package, pacman: fcitx-mozc }

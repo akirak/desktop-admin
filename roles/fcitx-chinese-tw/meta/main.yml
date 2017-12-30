@@ -1,5 +1,0 @@
-# roles/fcitx-chinese-tw/meta/main.yml for Ansible
----
-dependencies:
-  - fcitx
-  - { role: package, pacman: fcitx-chewing }

@@ -1,0 +1,19 @@
+---
+- name: install yarn
+  package:
+    name: yarn
+    state: present
+  become: yes
+
+- name:
+  include_role: name=profile
+  vars:
+    dest: .zshenv
+    name: yarn
+    content: |
+      # Add global npm executables to PATH
+      PATH="$HOME/.node_modules/bin:$PATH"
+      # Add global yarn executables to PATH
+      PATH="$HOME/.yarn-config/global/node_modules/.bin:$PATH"
+      export PATH
+      export npm_config_prefix=~/.node_modules

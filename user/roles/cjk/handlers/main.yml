@@ -1,0 +1,4 @@
+---
+- name: start fcitx
+  command: fcitx
+  when: lookup('env', 'DISPLAY') != ''

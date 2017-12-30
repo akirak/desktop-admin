@@ -1,3 +1,0 @@
----
-- name: install dotfiles using mackup
-  include_tasks: mackup.yml

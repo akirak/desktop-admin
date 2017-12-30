@@ -1,0 +1,30 @@
+---
+- name: install zsh
+  # Use a generic package manager to install zsh
+  package:
+    name: zsh
+  become: yes
+
+# My zshrc requires utility scripts in .zsh directory contained in this repository. 
+# You have to create a symbolic link from ~/.zsh to the equivalent in dotfiles directory,
+- name: "Add a symbolic link to .zsh directory in dotfiles"
+  file:
+    src: "{{ dotfiles_dir }}/.zsh"
+    path: "{{ '~/.zsh' | expanduser }}"
+    state: link
+
+# Use antibody, a plugin manager for zsh. See my zshrc
+- name: include tasks to install antibody
+  include_tasks: antibody.yml
+
+- name: install pure prompt for zsh
+  git:
+    dest: "{{ '~/.zsh/pure' | expanduser }}"
+    repo: https://github.com/sindresorhus/pure.git
+    depth: 1
+
+- name: clone oh-my-zsh repository
+  git:
+    dest: "{{ '~/.oh-my-zsh' | expanduser }}"
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    depth: 1

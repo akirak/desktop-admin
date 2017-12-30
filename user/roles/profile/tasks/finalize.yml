@@ -1,0 +1,5 @@
+---
+- include_tasks: finalize-zshenv.yml
+  vars:
+    zshenv_file: "{{ '~/.zshenv' | expanduser }}"
+  tags: zsh
