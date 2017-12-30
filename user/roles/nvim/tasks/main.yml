@@ -1,9 +1,0 @@
----
-- name: clone my neovim config
-  git:
-    dest: "{{ user_home }}/.config/nvim"
-    repo: git@github.com:akirak/nvim-config.git
-    update: no
-
-- name: 'install nvim plugins'
-  shell: 'nvim +PluginInstall +qall'

@@ -16,3 +16,10 @@
   with_items:
     - tk
   tags: x11
+
+- name: install pro fonts
+  package:
+    name: adobe-source-code-pro-fonts
+    state: present
+  become: yes
+  tags: [ 'x11', 'fonts' ]

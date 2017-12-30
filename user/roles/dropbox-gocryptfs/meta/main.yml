@@ -1,5 +1,0 @@
----
-dependencies:
-  - dropbox
-  - gocryptfs-bin
-  - dotfiles

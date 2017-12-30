@@ -1,6 +1,0 @@
----
-dependencies:
-  - emacs-bin
-  - dotfiles
-  - profonts
-  - { role: zshenv-add, template: emacsclient-as-editor }

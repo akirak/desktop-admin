@@ -1,8 +1,0 @@
----
-
-- name: enable dropbox service
-  systemd:
-    name: dropbox
-    user: yes
-    enabled: yes
-    state: started

@@ -1,5 +1,0 @@
-# roles/profonts/meta/main.yml for Ansible
----
-dependencies:
-  # Installing a package using pacman (Arch Linux)
-  - { role: package, pacman: adobe-source-code-pro-fonts }

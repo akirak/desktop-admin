@@ -6,3 +6,4 @@
     option: x-scheme-handler/org-protocol
     value: emacsclient.desktop
     backup: yes
+  notify: update-desktop-database
