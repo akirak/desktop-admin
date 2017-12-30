@@ -8,6 +8,11 @@
       # Set the default editor to emacsclient
       export EDITOR="emacsclient --alternate-editor=emacs"
 
+- name: create a directory for desktop files
+  file:
+    path: "{{ '~/.local/share/applications' | expanduser }}"
+    state: directory
+
 - name: install a desktop file for emacsclient
   copy:
     src: emacsclient.desktop
