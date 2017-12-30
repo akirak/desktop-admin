@@ -9,17 +9,11 @@
     - xorg-xmodmap
     - xorg-xprop
     - xorg-xset
+    - xorg-xev
     - xorg-setxkbmap
-
-- name: set a video driver
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "video-{{ ansible_hostname }}.yml"
-    - "video-vesa.yml"
-
-- name: install the video driver
-  pacman:
-    name: "{{ arch_video_driver_package }}"
+    - xorg-drivers
+    - xclip
+    - xsel
 
 # TODO: install a display manager
 # - name: install a display manager (LightDM)

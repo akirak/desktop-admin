@@ -20,13 +20,13 @@ function init_archlinux() {
     pacman -Sy --noconfirm --needed python2 ansible openssh sudo \
         && echo "localhost ansible_python_interpreter=/usr/bin/python2 ansible_connection=local" \
                 >> /etc/ansible/hosts \
-        && ansible-playbook -c local -e user_name=${NEW_USER} init.yml \
+        && ansible-playbook -c local -e user_name=${NEW_USER} "$@" init.yml \
         && set_password ${NEW_USER}
 }
 
 if [[ -f /etc/arch-release ]]; then
     echo "The target operating system is Arch Linux."
-    init_archlinux
+    init_archlinux "$@"
 else
     echo "Unsupported operating system" >&2
     exit 1

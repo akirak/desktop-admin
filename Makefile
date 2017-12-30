@@ -8,5 +8,4 @@ test-arch:
 				${arch_docker_tag}
 
 test-arch-init:
-								docker run -v ${PWD}:/tmp/playbook -w /tmp/playbook \
-										archimg/base:full bash ./root-init.sh
+								docker build -f test-arch-init.dockerfile .

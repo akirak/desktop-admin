@@ -1,4 +1,5 @@
 ---
+# Create up the default user
 - hosts: all
 
   vars:
@@ -25,3 +26,6 @@
         insertafter: "^root "
         line: "{{ user_name }} ALL=(ALL) NOPASSWD: ALL"
         regexp: "^{{ user_name }}\\s"
+
+    - include_role: name=x-server
+      tags: graphical
