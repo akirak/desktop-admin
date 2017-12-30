@@ -1,10 +1,8 @@
 PWD = $(shell pwd)
-docker_tag = akirak-desktop:arch
+arch_docker_tag = akirak-desktop:arch
 
-test: build
+test-arch:
+			docker build -t ${arch_docker_tag} -f test-archlinux.dockerfile . && \
 			docker run -ti \
 				-v ${PWD}/user:/home/test/admin/user -w /home/test/admin/user \
-				${docker_tag}
-
-build:
-			docker build -t ${docker_tag} .
+				${arch_docker_tag}
