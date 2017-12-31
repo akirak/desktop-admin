@@ -2,4 +2,8 @@ PWD = $(shell pwd)
 OPTIONS = ""
 
 install:
-				ansible-playbook -c local -e playbook_dir=$PWD $OPTIONS apps.yml
+	if [ $(shell whoami) == "root" ]; then \
+		bash ./root-init.sh \
+	else \
+		ansible-playbook -c local -e playbook_dir=$PWD $OPTIONS apps.yml \
+	fi
