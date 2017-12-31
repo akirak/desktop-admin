@@ -1,0 +1,23 @@
+FROM archimg/base:full
+
+MAINTAINER Akira Komamura <akira.komamura@gmail.com>
+
+RUN pacman -Sy --needed --noconfirm git
+
+RUN mkdir /tmp/playbook
+COPY ./root-init.sh /tmp/playbook
+COPY ./init.yml /tmp/playbook
+WORKDIR /tmp/playbook
+RUN bash ./root-init.sh --skip-tags=graphical
+
+USER arch
+ENV HOME /home/arch
+RUN mkdir $HOME/admin
+COPY --chown=arch:arch user $HOME/admin/user
+
+WORKDIR $HOME/admin/user
+
+CMD ansible-playbook -c local \
+    -e playbook_dir=$HOME/admin/user \
+    --skip-tags=x11 \
+    playbook.yml

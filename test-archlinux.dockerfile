@@ -10,6 +10,7 @@ WORKDIR /tmp/playbook
 RUN ansible-playbook -i localhost, -c local \
       -e user_name=test playbook.yml
 
+# user name is different
 USER test
 ENV HOME /home/test
 RUN mkdir $HOME/admin

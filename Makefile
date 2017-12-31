@@ -1,11 +1,16 @@
 PWD = $(shell pwd)
-arch_docker_tag = akirak-desktop:arch
+arch_docker_tag = akirak-arch
 
-test-arch:
-			docker build -t ${arch_docker_tag} -f test-archlinux.dockerfile . && \
-			docker run -ti \
-				-v ${PWD}/user:/home/test/admin/user -w /home/test/admin/user \
-				${arch_docker_tag}
+test-arch: test-arch-user test-arch-graphical
+
+test-arch-user: test-arch-init
+								docker run akirak-arch:init
+
+test-arch-graphical: test-arch-init
+										 docker run -ti \
+												-v ${PWD}:/tmp/playbook -w /tmp/playbook \
+												akirak-arch:init \
+												ansible-playbook -c local --tags=graphical init.yml
 
 test-arch-init:
-								docker build -f test-arch-init.dockerfile .
+								docker build -t akirak-arch:init -f arch-init.dockerfile .
