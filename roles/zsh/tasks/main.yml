@@ -4,6 +4,7 @@
   package:
     name: zsh
   become: yes
+  notify: change shell to zsh
 
 # My zshrc requires utility scripts in .zsh directory contained in this repository. 
 # You have to create a symbolic link from ~/.zsh to the equivalent in dotfiles directory,

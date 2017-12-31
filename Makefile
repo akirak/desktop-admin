@@ -12,4 +12,4 @@ test-arch-graphical: test-arch-init
 												ansible-playbook -c local --tags=graphical init.yml
 
 test-arch-init:
-								docker build -t ${arch_docker_tag}:init -f arch-init.dockerfile .
+								docker build -t ${arch_docker_tag}:init -f archlinux.dockerfile .
