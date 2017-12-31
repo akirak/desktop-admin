@@ -4,13 +4,13 @@ arch_docker_tag = akirak-arch
 test-arch: test-arch-user test-arch-graphical
 
 test-arch-user: test-arch-init
-								docker run akirak-arch:init
+								docker run ${arch_docker_tag}:init
 
 test-arch-graphical: test-arch-init
 										 docker run -ti \
 												-v ${PWD}:/tmp/playbook -w /tmp/playbook \
-												akirak-arch:init \
+												${arch_docker_tag}:init \
 												ansible-playbook -c local --tags=graphical init.yml
 
 test-arch-init:
-								docker build -t akirak-arch:init -f arch-init.dockerfile .
+								docker build -t ${arch_docker_tag}:init -f arch-init.dockerfile .
