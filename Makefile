@@ -1,15 +1,18 @@
-PWD = $(shell pwd)
-arch_docker_tag = akirak-arch
+# Makefiles for the user
+INSTALL = make -f install.mk
+MAINTENANCE = make -f maint.mk
 
-test-arch: test-arch-user test-arch-graphical
+# Makefiles for testing
+ARCHLINUX = make -f test-archlinux.mk
 
-test-arch-user: test-arch-init
-								docker run ${arch_docker_tag}:init
+install:
+				$(INSTALL) install
 
-test-arch-graphical: test-arch-init
-										 docker run -u root \
-												${arch_docker_tag}:init \
-												ansible-playbook -c local --tags=graphical init.yml
+backup:
+				$(MAINTENANCE) backup
 
-test-arch-init:
-								docker build -t ${arch_docker_tag}:init -f archlinux.dockerfile .
+backup-dry:
+						$(MAINTENANCE) backup-dry
+
+test-archlinux:
+								$(ARCHLINUX) all
