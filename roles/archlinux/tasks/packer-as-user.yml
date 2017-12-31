@@ -1,0 +1,3 @@
+- name: "install packer AUR helper"
+  script: install_packer.sh
+  become_user: "{{ ansible_user_id }}"

@@ -1,0 +1,8 @@
+---
+- name: "Add {{ name }} pacman repository to /etc/pacman.conf"
+  blockinfile:
+    path: /etc/pacman.conf
+    state: present
+    block: "[{{ name }}]\n{{ config }}"
+    marker: "# {mark} {{ name }}"
+  notify: update pacman databases

@@ -1,0 +1,23 @@
+---
+- tags: multilib
+  include_tasks: add-repo.yml
+  vars:
+    name: multilib
+    config: >
+      Include = /etc/pacman.d/mirrorlist
+
+- tags: archlinuxfr
+  include_tasks: add-repo.yml
+  vars:
+    name: archlinuxfr
+    config: >
+      SigLevel = Never
+      Server = http://repo.archlinux.fr/$arch
+
+- tags: archlinuxcn
+  include_tasks: add-repo.yml
+  vars:
+    name: archlinuxcn
+    config: >
+      SigLevel = Optional TrustedOnly
+      Server = https://cdn.repo.archlinuxcn.org/$arch

@@ -14,9 +14,9 @@ USER arch
 ENV HOME /home/arch
 COPY --chown=arch:arch . $HOME/admin
 
-WORKDIR $HOME/admin/user
+WORKDIR $HOME/admin
 
 CMD ansible-playbook -c local \
-    -e playbook_dir=$HOME/admin/user \
+    -e playbook_dir=$HOME/admin \
     --skip-tags=x11 \
-    playbook.yml
+    apps.yml

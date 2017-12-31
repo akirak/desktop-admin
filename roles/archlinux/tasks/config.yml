@@ -1,6 +1,5 @@
 ---
 - name: enable colored output of pacman
-  become: yes
   lineinfile:
     path: /etc/pacman.conf
     state: present

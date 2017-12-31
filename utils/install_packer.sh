@@ -3,8 +3,7 @@
 # This script must be run as a user, not as a root
 
 # Install dependencies
-# sudo pacman -Sy --noconfirm --asdeps git expac jshon base-devel binutils make gcc pkg-config fakeroot
-sudo pacman -Sy --noconfirm --asdeps git expac jshon base-devel
+sudo pacman -Sy --noconfirm --asdeps git expac jshon grep
 
 tmpdir=`mktemp -d`
 cd $tmpdir

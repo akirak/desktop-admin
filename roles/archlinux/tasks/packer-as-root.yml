@@ -1,0 +1,26 @@
+---
+- name: "create aur user"
+  user:
+    name: aur
+    state: present
+    createhome: no
+
+- name: "add aur user to sudoers"
+  lineinfile:
+    line: "aur ALL=(ALL) NOPASSWD: ALL"
+    path: /etc/sudoers
+
+- name: "install packer AUR helper"
+  script: install_packer.sh
+  become_user: aur
+
+- name: "delete aur user from sudoers"
+  lineinfile:
+    line: "aur ALL=(ALL) NOPASSWD: ALL"
+    path: /etc/sudoers
+    state: absent
+
+- name: "remove aur user"
+  user:
+    name: aur
+    state: absent

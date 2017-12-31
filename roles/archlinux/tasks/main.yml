@@ -1,0 +1,15 @@
+---
+- when: ansible_os_family == 'Archlinux'
+  become: yes
+  become_user: root
+  block:
+    - name: install packer AUR helper
+      include_tasks: packer.yml
+      tags: [ 'aur' ]
+
+    - name: add pacman repositories
+      include_tasks: repos.yml
+
+    - name: run other pre-tasks for Arch Linux
+      include_tasks: config.yml
+      tags: [ 'pacman' ]

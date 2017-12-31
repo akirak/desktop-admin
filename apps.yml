@@ -13,7 +13,7 @@
 
     - name: check if this playbook is run as a user
       include_tasks: tasks/check-user.yml
-
+      
     - include_role:
         name: profile
         tasks_from: initialize.yml

@@ -1,0 +1,21 @@
+---
+- name: check if packer is installed
+  stat:
+    path: /usr/bin/packer
+  register: packer
+
+- when: not packer.stat.exists
+  block:
+
+    - name: "install prerequisites for installing pacman"
+      pacman:
+        name: "{{ package }}"
+        state: present
+      with_items:
+        - sudo
+      loop_control:
+        loop_var: package
+
+    - include_tasks: >
+        {{ (ansible_user_id == 'root')
+        | ternary('packer-as-root.yml', 'packer-as-user.yml') }}
