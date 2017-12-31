@@ -3,7 +3,7 @@
 # This script must be run as a user, not as a root
 
 # Install dependencies
-sudo pacman -Sy --noconfirm --asdeps git expac jshon grep
+sudo pacman -Sy --noconfirm --asdeps --needed base-devel fakeroot jshon expac git
 
 tmpdir=`mktemp -d`
 cd $tmpdir

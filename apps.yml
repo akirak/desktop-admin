@@ -13,7 +13,10 @@
 
     - name: check if this playbook is run as a user
       include_tasks: tasks/check-user.yml
-      
+
+    - include_role: name=archlinux
+      when: ansible_os_family == 'Archlinux'
+
     - include_role:
         name: profile
         tasks_from: initialize.yml

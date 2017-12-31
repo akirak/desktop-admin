@@ -16,6 +16,8 @@
       loop_control:
         loop_var: package
 
-    - include_tasks: >
-        {{ (ansible_user_id == 'root')
-        | ternary('packer-as-root.yml', 'packer-as-user.yml') }}
+    - when: ansible_user_id == 'root'
+      include_tasks: packer-as-root.yml
+
+    - when: ansible_user_id != 'root'
+      include_tasks: packer-as-user.yml
