@@ -1,0 +1,9 @@
+---
+- pause:
+    prompt: "Enter your password to run chsh: "
+  register: password
+
+- expect:
+    command: "chsh -s /bin/zsh"
+    responses:
+      Password: "{{ password.user_input }}"

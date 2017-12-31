@@ -57,6 +57,11 @@
     - name: misc
       tags: misc
 
+  handlers:
+    - name: change shell (chsh) to zsh
+      include_tasks: tasks/chsh-zsh.yml
+      ignore_errors: yes
+
   post_tasks:
 
     - include_role:
