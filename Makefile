@@ -7,8 +7,8 @@ test-arch-user: test-arch-init
 								docker run ${arch_docker_tag}:init
 
 test-arch-graphical: test-arch-init
-										 docker run -ti \
-												-v ${PWD}:/tmp/playbook -w /tmp/playbook \
+										 docker run \
+												-w /home/arch/admin -u root \
 												${arch_docker_tag}:init \
 												ansible-playbook -c local --tags=graphical init.yml
 

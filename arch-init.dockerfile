@@ -12,8 +12,7 @@ RUN bash ./root-init.sh --skip-tags=graphical
 
 USER arch
 ENV HOME /home/arch
-RUN mkdir $HOME/admin
-COPY --chown=arch:arch user $HOME/admin/user
+COPY --chown=arch:arch . $HOME/admin
 
 WORKDIR $HOME/admin/user
 
