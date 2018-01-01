@@ -3,6 +3,7 @@
   package:
     name: "{{ chromium_package }}"
     state: present
+  become: yes
 
 - name:
   include_role: name=profile
