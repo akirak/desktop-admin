@@ -8,11 +8,23 @@
 
 # My zshrc requires utility scripts in .zsh directory contained in this repository. 
 # You have to create a symbolic link from ~/.zsh to the equivalent in dotfiles directory,
-- name: "Add a symbolic link to .zsh directory in dotfiles"
+- name: create a directory for configuration files for zsh
   file:
-    src: "{{ dotfiles_dir }}/.zsh"
     path: "{{ '~/.zsh' | expanduser }}"
+    state: directory
+
+- name: "Add symbolic links to files in .zsh directory"
+  file:
+    src: "{{ dotfiles_dir }}/.zsh/{{ item }}"
+    path: "{{ '~/.zsh' | expanduser }}/{{ item }}"
     state: link
+  with_items:
+    - aliases.zsh
+    - bindings.zsh
+    - oh-my-zsh.zsh
+    - options.zsh
+    - plugins.txt
+    - functions
 
 # Use antibody, a plugin manager for zsh. See my zshrc
 - name: include tasks to install antibody
