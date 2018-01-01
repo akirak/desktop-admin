@@ -4,4 +4,4 @@ services:
   - docker
 
 before_install:
-  - docker build -t akirak/linux-playbook -f archlinux-full.dockerfile .
+  - docker build -f archlinux.dockerfile .
