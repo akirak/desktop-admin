@@ -8,5 +8,5 @@
 - name: link xmodmap configuration file
   file:
     src: "{{ dotfiles_dir }}/{{ xmodmap_file }}"
-    path: "{{ user_home }}/.Xmodmap"
+    path: "{{ '~/.Xmodmap' | expanduser }}"
     state: link
