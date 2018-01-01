@@ -41,30 +41,36 @@ The user playbook is currently tested on Arch Linux but may support other Linux 
 
 This repository contains a script for creating a user and installing X Window System on Arch Linux:
 
-```
-bash ./root-init.sh
-```
+    bash ./install.bash
+
+or
+
+    make install
 
 If you don't want to install the graphical environment using this playbook, add `--skip-tags=x-server` option:
 
-```
-bash ./root-init.sh --skip-tags=x-server
-```
+    bash ./install.bash --skip-tags=x-server
 
 ### Install applications as a user
 
-This repository contains a Makefile for installing application. Run `make install` as a user:
+    bash ./install.bash
 
-```
-make install
-```
+or
 
+    make install
+    
 ## Development
 
 You can use make to test the playbooks in a Docker container:
 
 ```
-make test-archlinux
+make archlinux
+```
+
+or
+
+```
+make archliux-full
 ```
 
 ## License
