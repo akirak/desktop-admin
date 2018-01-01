@@ -1,17 +1,12 @@
 ARCH_DOCKER_TAG = akirak/linux-playbook:arch
 
-all: user graphical
+# The first target will become a job run with 'make test-archlinux' (see Makefile)
 
-user: init
-			docker run $(ARCH_DOCKER_TAG)-init
-
-graphical: init
-					docker run -u root \
-						$(ARCH_DOCKER_TAG)-init \
-						ansible-playbook -c local --tags=graphical init.yml
-
-init:
-			docker build -t $(ARCH_DOCKER_TAG)-init -f archlinux.dockerfile .
+user:
+		docker build -f archlinux.dockerfile \
+			--build-arg root-options=--skip-tags=graphical \
+			--build-arg user-options=--skip-tags=x11 \
+			.
 
 full:
-		docker build -t $(ARCH_DOCKER_TAG)-full -f archlinux-full.dockerfile .
+		docker build -f archlinux.dockerfile .
