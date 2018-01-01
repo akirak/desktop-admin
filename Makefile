@@ -16,3 +16,6 @@ backup-dry:
 
 test-archlinux:
 								$(ARCHLINUX) all
+
+archlinux-full:
+		$(ARCHLINUX) full

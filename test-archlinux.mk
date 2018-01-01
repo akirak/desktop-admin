@@ -12,3 +12,6 @@ graphical: init
 
 init:
 			docker build -t $(ARCH_DOCKER_TAG):init -f archlinux.dockerfile .
+
+full:
+		docker build -t $(ARCH_DOCKER_TAG):full -f archlinux-full.dockerfile .

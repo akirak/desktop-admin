@@ -2,7 +2,7 @@ FROM archimg/base:full
 
 MAINTAINER Akira Komamura <akira.komamura@gmail.com>
 
-RUN pacman -Sy --needed --noconfirm git
+RUN pacman -Sy --needed --noconfirm git make
 
 RUN mkdir /tmp/playbook
 COPY ./root-init.sh /tmp/playbook
