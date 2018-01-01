@@ -1,7 +1,6 @@
 sudo: required
-services:
-- docker
-before_install:
+services: docker
+script:
 - docker build -f archlinux.dockerfile .
 notifications:
   slack:
