@@ -1,6 +1,8 @@
 Ansible Playbooks for Configuring a Linux Desktop
 ==================
 
+[![Build Status](https://travis-ci.org/akirak/linux-playbook.svg?branch=master)](https://travis-ci.org/akirak/linux-playbook)
+
 This repository contains Ansible playbooks for configuring a Linux machine.
 
 ## Features
