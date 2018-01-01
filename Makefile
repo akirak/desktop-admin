@@ -15,7 +15,7 @@ backup:
 backup-dry:
 						$(MAINTENANCE) backup-dry
 
-test-archlinux:
+archlinux:
 		$(ARCHLINUX)
 
 archlinux-full:
