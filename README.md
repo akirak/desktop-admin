@@ -61,17 +61,13 @@ or
     
 ## Development
 
-You can use make to test the playbooks in a Docker container:
+To create a user and install applications (excluding X application) as the Linux onto Arch Linux:
 
-```
-make archlinux
-```
+    make archlinux
 
-or
+To install all applications onto Arch Linux:
 
-```
-make archliux-full
-```
+    make archliux-full
 
 ## License
 
