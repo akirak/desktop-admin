@@ -5,8 +5,7 @@ MAINTAINER Akira Komamura <akira.komamura@gmail.com>
 RUN pacman -Sy --needed --noconfirm git make
 
 RUN mkdir /tmp/playbook
-COPY ./root-init.sh /tmp/playbook
-COPY ./init.yml /tmp/playbook
+COPY init.yml install.bash Makefile /tmp/playbook/
 WORKDIR /tmp/playbook
 RUN make install
 

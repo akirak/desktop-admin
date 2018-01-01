@@ -1,12 +1,13 @@
+INSTALL = bash ./install.bash
+
 # Makefiles for the user
-INSTALL = make -f install.mk
 MAINTENANCE = make -f maint.mk
 
 # Makefiles for testing
 ARCHLINUX = make -f test-archlinux.mk
 
 install:
-				$(INSTALL) install
+				$(INSTALL) $(INSTALL_ARGS)
 
 backup:
 				$(MAINTENANCE) backup
