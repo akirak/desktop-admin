@@ -5,6 +5,7 @@ MAINTENANCE = make -f maint.mk
 
 # Makefiles for testing
 ARCHLINUX = make -f test-archlinux.mk
+TEST_EMACS = docker build -f test-emacs.dockerfile .
 
 install:
 				$(INSTALL) $(INSTALL_ARGS)
@@ -20,3 +21,6 @@ archlinux:
 
 archlinux-full:
 		$(ARCHLINUX) full
+
+test-emacs:
+		$(TEST_EMACS)

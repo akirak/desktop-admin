@@ -1,0 +1,10 @@
+# Ansible playbook for Emacs configuration role
+---
+- hosts: all
+  tasks:
+    - debug:
+        msg: OK
+
+    # - name: Create a virtual home directory for Emacs with seagle0128/.emacs.d repo
+    #   emacs-pg:
+    #     github: seagle0128/.emacs.d
